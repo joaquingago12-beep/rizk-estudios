@@ -1,0 +1,930 @@
+<title>Estudios CABA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: herramienta de trabajo. Barra superior fija con pestañas; debajo, una vista por pestaña.
+   En escritorio, la lista de estudios y la ficha conviven lado a lado; en el teléfono la ficha se abre encima. */
+:root{
+  --bg:#f3f2ee; --surface:#ffffff; --surface-2:#ecebe6; --line:rgba(20,20,19,.10); --line-strong:rgba(20,20,19,.22);
+  --fg:#141413; --fg-2:#5e5d58; --fg-3:#8a8983;
+  --accent:#6b3fd4; --accent-soft:rgba(107,63,212,.10); --on-accent:#ffffff;
+  --st-new:#8a8983; --st-touch:#2f6fd6; --st-wait:#b7791f; --st-hot:#1f9d57; --st-won:#0f7a3f; --st-lost:#c2413b; --st-mute:#9a9892;
+  --disc: conic-gradient(from 200deg,#b892ff,#7fe0e6,#ffe08a,#ffb0d9,#b892ff);
+  --map-bg:#e9e7e0; --map-grid:rgba(20,20,19,.06); --water:#d6e3ea;
+  --shadow:0 1px 2px rgba(0,0,0,.06),0 8px 28px rgba(0,0,0,.08);
+  --font-display:"Unbounded","Arial Black",sans-serif;
+  --font-body:"Instrument Sans",-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0a0a0a; --surface:#141414; --surface-2:#1d1d1d; --line:rgba(255,255,255,.09); --line-strong:rgba(255,255,255,.2);
+  --fg:#f4f3ef; --fg-2:#a3a29c; --fg-3:#83817a;
+  --accent:#b892ff; --accent-soft:rgba(184,146,255,.14); --on-accent:#0a0a0a;
+  --st-new:#93928d; --st-touch:#7fb0ff; --st-wait:#f2c879; --st-hot:#8fd6a0; --st-won:#5fe08d; --st-lost:#ff8a80; --st-mute:#6f6e69;
+  --map-bg:#121212; --map-grid:rgba(255,255,255,.05); --water:#0f1b22;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 16px 40px rgba(0,0,0,.5); color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0a0a0a; --surface:#141414; --surface-2:#1d1d1d; --line:rgba(255,255,255,.09); --line-strong:rgba(255,255,255,.2);
+  --fg:#f4f3ef; --fg-2:#a3a29c; --fg-3:#83817a;
+  --accent:#b892ff; --accent-soft:rgba(184,146,255,.14); --on-accent:#0a0a0a;
+  --st-new:#93928d; --st-touch:#7fb0ff; --st-wait:#f2c879; --st-hot:#8fd6a0; --st-won:#5fe08d; --st-lost:#ff8a80; --st-mute:#6f6e69;
+  --map-bg:#121212; --map-grid:rgba(255,255,255,.05); --water:#0f1b22;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 16px 40px rgba(0,0,0,.5); color-scheme:dark;}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:14px;line-height:1.45}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:inherit}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--fg-2)} .faint{color:var(--fg-3)}
+
+/* ---------- barra superior ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-inner{display:flex;align-items:center;gap:16px;padding:10px 16px;max-width:1440px;margin:0 auto;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.disc{width:22px;height:22px;border-radius:50%;background:var(--disc);position:relative;flex:none}
+.disc::after{content:"";position:absolute;inset:34%;border-radius:50%;background:var(--bg)}
+.wordmark{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+.wordmark::before{content:"[";color:var(--fg-3)} .wordmark::after{content:"]";color:var(--fg-3)}
+.privbadge{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-3);border:1px solid var(--line-strong);border-radius:999px;padding:2px 8px}
+.tabs{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{border:0;background:transparent;padding:7px 12px;border-radius:999px;color:var(--fg-2);font-weight:500;white-space:nowrap;display:flex;gap:6px;align-items:center}
+.tab[aria-selected="true"]{background:var(--fg);color:var(--bg)}
+.tab .n{font-family:var(--font-mono);font-size:11px;opacity:.75}
+.banner{max-width:1440px;margin:10px auto 0;padding:0 16px}
+.banner > div{border:1px solid var(--line-strong);background:var(--surface);border-radius:var(--r);padding:10px 14px;font-size:13px}
+
+main{max-width:1440px;margin:0 auto;padding-inline:16px;padding-block:16px 60px}
+.view[hidden]{display:none!important}
+h2.sec{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3);font-weight:500;margin:0 0 10px}
+h1.page{font-family:var(--font-display);font-weight:600;font-size:22px;letter-spacing:-.01em;margin:0;text-wrap:balance}
+
+/* ---------- panel ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:14px 0 26px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;text-align:left;display:flex;flex-direction:column;gap:4px;position:relative}
+.kpi:hover{border-color:var(--line-strong)}
+.kpi .v{font-family:var(--font-body);font-weight:700;font-size:26px;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi .l{font-size:12.5px;color:var(--fg-2)}
+.kpi .dot{position:absolute;top:14px;right:14px}
+.kpi.total{background:var(--fg);color:var(--bg);border-color:var(--fg)} .kpi.total .l{color:inherit;opacity:.7}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
+.table-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+table.grid{border-collapse:collapse;width:100%;min-width:720px}
+table.grid th,table.grid td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+table.grid th{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-3);font-weight:500;background:var(--surface)}
+table.grid th:first-child,table.grid td:first-child{text-align:left}
+table.grid td{font-variant-numeric:tabular-nums}
+table.grid tr.row{cursor:pointer} table.grid tr.row:hover td{background:var(--surface-2)}
+table.grid td.zero{color:var(--fg-3)}
+.bar{display:inline-block;height:6px;border-radius:3px;background:var(--st-new);vertical-align:middle;margin-left:8px;opacity:.45}
+.cols{display:grid;grid-template-columns:1fr;gap:26px}
+
+/* ---------- pills de estado ---------- */
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:3px 9px 3px 8px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);white-space:nowrap}
+.s-sin_contactar{--c:var(--st-new)} .s-contactado{--c:var(--st-touch)} .s-no_responde{--c:var(--st-mute)}
+.s-respondio,.s-volver{--c:var(--st-wait)} .s-interesado,.s-reunion,.s-demo,.s-negociacion{--c:var(--st-hot)}
+.s-cliente{--c:var(--st-won)} .s-no_interesado{--c:var(--st-lost)}
+.pill .dot,.kpi .dot,.legend .dot{background:var(--c)}
+.pill.s-cliente{background:color-mix(in srgb,var(--st-won) 16%,transparent);border-color:transparent}
+.pill.s-interesado,.pill.s-reunion,.pill.s-demo,.pill.s-negociacion{background:color-mix(in srgb,var(--st-hot) 13%,transparent);border-color:transparent}
+
+/* ---------- botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line-strong);background:var(--surface);border-radius:10px;padding:8px 12px;font-weight:500;font-size:13px;text-decoration:none;white-space:nowrap;min-height:36px}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn.accent{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn.ghost{border-color:transparent;background:transparent}
+.btn[aria-disabled="true"],.btn:disabled{opacity:.38;pointer-events:none}
+.btn svg{width:15px;height:15px;flex:none}
+.btn.sm{padding:5px 9px;min-height:30px;font-size:12.5px;border-radius:8px}
+.actions{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:500;white-space:nowrap;color:var(--fg-2)}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip .n{font-family:var(--font-mono);font-size:11px;opacity:.7;margin-left:4px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ---------- hoy ---------- */
+.today-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.group{margin-bottom:26px}
+.group-head{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.group-head .count{font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card.overdue{border-color:color-mix(in srgb,var(--st-lost) 45%,var(--line))}
+.card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.card-name{font-weight:600;font-size:15px;border:0;background:none;padding:0;text-align:left;min-width:0;overflow-wrap:anywhere}
+.card-name:hover{text-decoration:underline}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:12.5px}
+.meta dt{color:var(--fg-3)} .meta dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.empty{border:1px dashed var(--line-strong);border-radius:var(--r);padding:18px;color:var(--fg-2);font-size:13px}
+
+/* ---------- lista ---------- */
+.list-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:1080px){.list-layout.has-detail{grid-template-columns:minmax(0,1fr) 480px}}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.search{flex:1 1 260px;position:relative;min-width:0}
+.search input{width:100%;height:40px;border-radius:10px;border:1px solid var(--line-strong);background:var(--surface);padding:0 12px 0 36px}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--fg-3)}
+.filters{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.field label,.lbl{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-3)}
+.field select,.field input,.field textarea,.in{height:36px;border-radius:9px;border:1px solid var(--line-strong);background:var(--surface);padding:0 10px;width:100%;min-width:0}
+.field textarea,textarea.in{height:auto;min-height:90px;padding:8px 10px;resize:vertical;line-height:1.45}
+.checks{display:flex;flex-wrap:wrap;gap:6px}
+.resultbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:4px 0 8px;font-size:12.5px;color:var(--fg-2);flex-wrap:wrap}
+.rows{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.srow{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);cursor:pointer;width:100%;background:none;border-left:0;border-right:0;border-top:0;text-align:left}
+.srow:last-child{border-bottom:0}
+.srow:hover{background:var(--surface-2)}
+.srow[aria-current="true"]{background:var(--accent-soft)}
+.srow .nm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.srow .sub{font-size:12px;color:var(--fg-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.srow .br{font-size:13px;color:var(--fg-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.srow .rt{font-family:var(--font-mono);font-size:12px;color:var(--fg-3)}
+.srow-head{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) auto;gap:10px;padding:8px 14px;border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-3)}
+.more{display:flex;justify-content:center;padding:12px}
+
+/* ---------- ficha ---------- */
+.detail{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;min-width:0}
+@media (min-width:1080px){.detail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);max-height:calc(100vh - 90px);overflow:auto}}
+@media (max-width:1079px){
+  .detail{position:fixed;inset:0;z-index:40;border-radius:0;overflow:auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+}
+.d-head{padding:14px 16px 12px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px;position:sticky;top:0;background:var(--surface);z-index:2}
+.d-title{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.d-title h3{margin:0;font-size:18px;font-weight:700;overflow-wrap:anywhere}
+.d-sub{font-size:12.5px;color:var(--fg-2)}
+.d-body{padding:14px 16px 20px;display:flex;flex-direction:column;gap:18px}
+.block{display:flex;flex-direction:column;gap:10px}
+.block-h{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.block-h h4{margin:0;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--fg-3)}
+.zone-crm{border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));background:var(--accent-soft);border-radius:var(--r);padding:12px;display:flex;flex-direction:column;gap:16px}
+.zone-tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:480px){.two{grid-template-columns:1fr}}
+.kv{display:grid;grid-template-columns:110px minmax(0,1fr);gap:6px 10px;font-size:13px}
+.kv dt{color:var(--fg-3)} .kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.copy{border:0;background:none;padding:0 0 0 6px;color:var(--fg-3);font-size:11.5px;text-decoration:underline}
+.hist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.hist li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;font-size:13px;align-items:start;padding:7px 10px;background:var(--surface);border-radius:8px;border:1px solid var(--line)}
+.hist .x{border:0;background:none;color:var(--fg-3);padding:0 2px}
+.flag{font-size:12.5px;border-left:3px solid var(--st-wait);padding:6px 10px;background:color-mix(in srgb,var(--st-wait) 10%,transparent);border-radius:4px}
+.saved{font-family:var(--font-mono);font-size:11px;color:var(--fg-3)}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{font-family:var(--font-mono);font-size:11px;background:var(--surface-2);border-radius:6px;padding:2px 7px;color:var(--fg-2)}
+
+/* ---------- mapa ---------- */
+.map-wrap{position:relative;background:var(--map-bg);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;height:min(72vh,760px);min-height:420px;touch-action:none}
+.map-wrap svg{width:100%;height:100%;display:block;cursor:grab}
+.map-wrap svg.drag{cursor:grabbing}
+.map-ctrl{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px}
+.map-ctrl .btn{width:36px;padding:0}
+.legend{position:absolute;left:10px;bottom:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;max-width:calc(100% - 20px)}
+.legend span{display:flex;align-items:center;gap:6px}
+.pop{position:absolute;z-index:5;width:280px;max-width:calc(100% - 20px);background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r);box-shadow:var(--shadow);padding:12px;display:flex;flex-direction:column;gap:8px}
+.mk{cursor:pointer}
+.mk circle{stroke:var(--surface);stroke-width:1.5}
+
+/* ---------- datos ---------- */
+.data-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel p{margin:0;font-size:13px;color:var(--fg-2);max-width:65ch}
+.dup{border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.dup-list{display:flex;flex-direction:column;gap:8px;max-height:360px;overflow:auto}
+pre.out{white-space:pre-wrap;word-break:break-word;font-family:var(--font-mono);font-size:11.5px;max-height:220px;overflow:auto;background:var(--surface-2);padding:10px;border-radius:8px;margin:0}
+
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 14px;border-radius:10px;font-size:13px;z-index:60;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow);max-width:calc(100% - 32px)}
+.toast button{background:none;border:0;color:inherit;text-decoration:underline;font-weight:600;padding:0}
+.skeleton{color:var(--fg-3);padding:24px 0}
+@media (max-width:640px){
+  .top-inner{gap:8px} .tabs{margin-left:0;width:100%}
+  .privbadge{display:none}
+  .srow,.srow-head{grid-template-columns:minmax(0,1fr) auto}
+  .srow .br,.srow-head .h-br{display:none}
+}
+@media (prefers-reduced-motion:no-preference){.tab,.chip,.btn{transition:background-color .12s,color .12s,border-color .12s}}
+</style>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand"><span class="disc" aria-hidden="true"></span><span class="wordmark">ESTUDIOS CABA</span><span class="privbadge">privado · RIZK</span></div>
+    <nav class="tabs" role="tablist" aria-label="Secciones">
+      <button class="tab" role="tab" data-tab="panel" id="tab-panel">Panel</button>
+      <button class="tab" role="tab" data-tab="hoy" id="tab-hoy">Hoy <span class="n" id="tab-hoy-n"></span></button>
+      <button class="tab" role="tab" data-tab="lista" id="tab-lista">Estudios <span class="n" id="tab-lista-n"></span></button>
+      <button class="tab" role="tab" data-tab="mapa" id="tab-mapa">Mapa</button>
+      <button class="tab" role="tab" data-tab="datos" id="tab-datos">Importar / Exportar</button>
+    </nav>
+  </div>
+</header>
+<div class="banner" id="banner" hidden><div id="banner-text"></div></div>
+
+<main>
+  <!-- PANEL -->
+  <section class="view" id="view-panel" data-view="panel">
+    <h1 class="page" id="panel-title">Estudios de grabación · CABA</h1>
+    <div class="kpis" id="kpis"><div class="skeleton">Conectando con la base de estudios…</div></div>
+    <div class="cols">
+      <div>
+        <h2 class="sec">Por barrio · tocá un barrio para ver sus estudios</h2>
+        <div class="table-wrap"><table class="grid" id="barrio-table"><thead><tr>
+          <th>Barrio</th><th>Comuna</th><th>Estudios</th><th>Sin contactar</th><th>Contactados</th><th>Respondieron</th><th>Interesados</th><th>Seguimiento</th><th>Clientes</th>
+        </tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOY -->
+  <section class="view" id="view-hoy" data-view="hoy" hidden>
+    <div class="today-head">
+      <div><h2 class="sec" id="today-date"></h2><h1 class="page">Para contactar hoy</h1></div>
+      <div class="chips" id="today-zone" aria-label="Zona"></div>
+    </div>
+    <div id="today-groups"></div>
+  </section>
+
+  <!-- LISTA -->
+  <section class="view" id="view-lista" data-view="lista" hidden>
+    <div class="list-layout" id="list-layout">
+      <div style="min-width:0">
+        <div class="toolbar">
+          <div class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="q" type="search" placeholder="Buscar por nombre, barrio, dirección, teléfono, Instagram, contacto o notas" autocomplete="off" aria-label="Buscar estudio">
+          </div>
+          <button class="btn" id="btn-filters" aria-expanded="false">Filtros <span class="mono" id="filters-n"></span></button>
+        </div>
+        <div class="chips" id="quick" style="margin-bottom:10px"></div>
+        <div class="filters" id="filters" hidden></div>
+        <div class="resultbar"><span id="result-n"></span><span class="chips"><select class="in" id="sort" aria-label="Ordenar" style="height:32px;width:auto">
+          <option value="prio">Orden: prioridad</option><option value="name">Orden: nombre</option><option value="rating">Orden: rating</option><option value="reviews">Orden: cantidad de reseñas</option><option value="next">Orden: próximo contacto</option><option value="last">Orden: último contacto</option>
+        </select></span></div>
+        <div class="rows" id="rows"></div>
+        <div class="more" id="more"></div>
+      </div>
+      <aside class="detail" id="detail" hidden aria-label="Ficha del estudio"></aside>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section class="view" id="view-mapa" data-view="mapa" hidden>
+    <div class="resultbar" style="margin-top:0"><span id="map-n"></span><span class="faint">Usa los mismos filtros y búsqueda que la lista. Mapa esquemático: cada punto está en su coordenada real; el plano de calles se abre en Google Maps.</span></div>
+    <div class="map-wrap" id="map-wrap">
+      <svg id="map" role="img" aria-label="Mapa de estudios de CABA"></svg>
+      <div class="map-ctrl"><button class="btn" id="zin" aria-label="Acercar">+</button><button class="btn" id="zout" aria-label="Alejar">−</button><button class="btn" id="zreset" aria-label="Ver toda la ciudad">⤢</button></div>
+      <div class="legend" id="legend"></div>
+      <div class="pop" id="pop" hidden></div>
+    </div>
+  </section>
+
+  <!-- DATOS -->
+  <section class="view" id="view-datos" data-view="datos" hidden>
+    <div class="data-grid">
+      <div class="panel">
+        <h2 class="sec" style="margin:0">Importar estudios (CSV o JSON)</h2>
+        <p>Suma estudios nuevos y completa los datos que falten en los que ya existen. Nunca borra estudios, nunca pisa un dato que ya tenías y no toca estado, notas ni historial. Si un dato nuevo contradice uno existente, el estudio queda marcado para revisar.</p>
+        <input type="file" id="imp-file" accept=".csv,.json,text/csv,application/json" class="in" style="padding:6px">
+        <div id="imp-out"></div>
+      </div>
+      <div class="panel">
+        <h2 class="sec" style="margin:0">Exportar</h2>
+        <div class="two">
+          <div class="field"><label for="exp-set">Qué estudios</label><select id="exp-set">
+            <option value="all">Todos</option><option value="view">Lo que muestra la lista ahora</option><option value="sin">Sin contactar</option><option value="int">Interesados</option><option value="seg">Seguimientos pendientes</option><option value="cli">Clientes</option><option value="barrio">Un barrio…</option></select></div>
+          <div class="field" id="exp-barrio-f" hidden><label for="exp-barrio">Barrio</label><select id="exp-barrio"></select></div>
+          <div class="field"><label for="exp-what">Qué datos</label><select id="exp-what">
+            <option value="both">Estudio + relación comercial</option><option value="studio">Solo datos del estudio (para la app)</option></select></div>
+          <div class="field"><label for="exp-fmt">Formato</label><select id="exp-fmt"><option value="csv">CSV (Excel / Sheets)</option><option value="json">JSON</option></select></div>
+        </div>
+        <div class="actions"><button class="btn primary" id="exp-go">Exportar <span class="mono" id="exp-n"></span></button></div>
+        <div id="exp-out"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(() => {
+"use strict";
+/* ============ constantes ============ */
+const STATUS = [
+  ["sin_contactar","Sin contactar"],["contactado","Contactado"],["respondio","Respondió"],["interesado","Interesado"],
+  ["reunion","Reunión"],["demo","Demo"],["negociacion","Negociación"],["cliente","Cliente"],
+  ["no_interesado","No interesado"],["no_responde","No responde"],["volver","Volver a contactar"]];
+const SLABEL = Object.fromEntries(STATUS);
+const RESPONDED = new Set(["respondio","interesado","reunion","demo","negociacion","cliente","no_interesado"]);
+const INTEREST = new Set(["interesado","reunion","demo","negociacion"]);
+const CLOSED = new Set(["cliente","no_interesado"]);
+const CHANNELS = ["Llamada","WhatsApp","Instagram","Email","Presencial"];
+const RESULTS = [
+  ["No respondió","no_responde"],["Respondió","respondio"],["Interesado","interesado"],["Quiere una demo","demo"],
+  ["Reunión agendada","reunion"],["Volver a contactar","volver"],["No interesado","no_interesado"],["Cerrado · cliente","cliente"]];
+const COMUNA = {"Retiro":1,"San Nicolás":1,"Puerto Madero":1,"San Telmo":1,"Monserrat":1,"Constitución":1,"Recoleta":2,"Balvanera":3,"San Cristóbal":3,
+  "La Boca":4,"Barracas":4,"Parque Patricios":4,"Nueva Pompeya":4,"Almagro":5,"Boedo":5,"Caballito":6,"Flores":7,"Parque Chacabuco":7,
+  "Villa Soldati":8,"Villa Riachuelo":8,"Villa Lugano":8,"Liniers":9,"Mataderos":9,"Parque Avellaneda":9,"Villa Real":10,"Monte Castro":10,
+  "Versalles":10,"Floresta":10,"Vélez Sarsfield":10,"Villa Luro":10,"Villa General Mitre":11,"Villa Devoto":11,"Villa del Parque":11,
+  "Villa Santa Rita":11,"Coghlan":12,"Saavedra":12,"Villa Urquiza":12,"Villa Pueyrredón":12,"Núñez":13,"Belgrano":13,"Colegiales":13,
+  "Palermo":14,"Chacarita":15,"Villa Crespo":15,"La Paternal":15,"Villa Ortúzar":15,"Agronomía":15,"Parque Chas":15};
+const ZONE_OF_COMUNA = {1:"Centro",2:"Centro",3:"Centro",5:"Centro",6:"Centro",4:"Sur",8:"Sur",7:"Oeste",9:"Oeste",10:"Oeste",11:"Oeste",12:"Norte",13:"Norte",14:"Norte",15:"Norte"};
+const ZONES = ["Norte","Centro","Oeste","Sur"];
+const zoneOf = b => ZONE_OF_COMUNA[COMUNA[b]] || "";
+const PAGE = 60;
+
+/* ============ estado ============ */
+const S = { studios:new Map(), crm:new Map(), ready:{studios:false,crm:false}, db:null, canCrm:null, canStudio:null,
+  tab:"panel", sel:null, q:"", quick:"all", sort:"prio", shown:PAGE, f:blankFilters(), todayZone:"", lastChannel:{}, editStudio:false, logDraft:{} };
+function blankFilters(){ return {barrio:"",zona:"",status:[],has:[],last:"",next:"",type:"",service:"",rating:"",review:false}; }
+
+/* ============ utilidades ============ */
+const $ = s => document.querySelector(s);
+const h = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad = n => String(n).padStart(2,"0");
+function todayISO(){ const d=new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
+function addDays(iso,n){ const [y,m,d]=iso.split("-").map(Number); const t=new Date(y,m-1,d+n); return `${t.getFullYear()}-${pad(t.getMonth()+1)}-${pad(t.getDate())}`; }
+function daysBetween(a,b){ const pa=a.split("-").map(Number), pb=b.split("-").map(Number); return Math.round((new Date(pb[0],pb[1]-1,pb[2])-new Date(pa[0],pa[1]-1,pa[2]))/864e5); }
+const DOW = ["dom","lun","mar","mié","jue","vie","sáb"], MON=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+function fdate(iso,{rel=true}={}){ if(!iso) return "—"; const [y,m,d]=iso.split("-").map(Number); const t=new Date(y,m-1,d);
+  const base=`${DOW[t.getDay()]} ${d} ${MON[m-1]}`; if(!rel) return base; const k=daysBetween(todayISO(),iso);
+  if(k===0) return "hoy"; if(k===1) return "mañana"; if(k===-1) return "ayer"; if(k<0) return `${base} · hace ${-k} d`; if(k<7) return `${base} · en ${k} d`; return base; }
+function digits(s){ return String(s||"").replace(/\D/g,""); }
+function waNumber(st,c){ const raw = (c&&c.whatsapp) || st.whatsapp || (/^\+?54\s?9/.test(String(st.phone||"").trim()) ? st.phone : ""); const d=digits(raw); if(!d) return "";
+  if(d.startsWith("54")) return d; if(d.length===10) return "549"+d; return d; }
+function igHandle(v){ if(!v) return ""; let s=String(v).trim(); s=s.replace(/^https?:\/\/(www\.)?instagram\.com\//i,"").replace(/^@/,"").split(/[/?#]/)[0]; return s; }
+function igUrl(v){ const hnd=igHandle(v); return hnd ? `https://instagram.com/${encodeURIComponent(hnd)}` : ""; }
+function webUrl(v){ if(!v) return ""; return /^https?:\/\//i.test(v)? v : "https://"+v; }
+function norm(s){ return String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9 ]+/g," ").replace(/\s+/g," ").trim(); }
+function crmOf(id){ return S.crm.get(id) || {}; }
+function statusOf(id){ return crmOf(id).status || "sin_contactar"; }
+function isPending(c,today=todayISO()){ return !!(c.next_contact && c.next_contact<=today && !CLOSED.has(c.status||"sin_contactar")); }
+function toast(msg, act){ const t=$("#toast"); t.innerHTML=`<span>${h(msg)}</span>`; if(act){ const b=document.createElement("button"); b.textContent=act.label; b.onclick=()=>{t.hidden=true;act.fn();}; t.appendChild(b); }
+  t.hidden=false; clearTimeout(toast._t); toast._t=setTimeout(()=>t.hidden=true, act?6000:2600); }
+function banner(msg){ $("#banner").hidden=!msg; $("#banner-text").textContent=msg||""; }
+function pill(st){ return `<span class="pill s-${st}"><span class="dot"></span>${h(SLABEL[st]||st)}</span>`; }
+async function copyText(txt){ try{ await navigator.clipboard.writeText(txt); toast("Copiado"); }catch(e){ toast("No se pudo copiar; seleccioná el texto"); } }
+const ICON = {
+  call:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
+  wa:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 9.5c.3 2 1.9 3.8 4 4.5l1.2-1.2 2 .8-.6 1.8c-3.6.2-7.2-3.3-7-6.9l1.8-.6.8 2z"/></svg>',
+  ig:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>',
+  mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+  map:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>',
+  web:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+  close:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>'};
+
+/* ============ escritura ============ */
+const queues = new Map();
+function enqueue(key, fn){ const prev=queues.get(key)||Promise.resolve(); const next=prev.then(fn,fn); queues.set(key,next.catch(()=>{})); return next; }
+function writeErr(e){ const c=e&&e.code; if(c==="quota_exceeded") toast("La base llegó a su límite de registros; no se pudo guardar"); else if(c==="invalid_argument") toast("No tenés permiso para guardar este dato"); else toast("No se pudo guardar; probá de nuevo"); }
+async function saveCrm(id, patch, {silent=false}={}){
+  if(!S.db){ toast("Sin conexión con la base"); return false; }
+  if(S.canCrm===false){ toast("Tu acceso no permite editar la relación comercial"); return false; }
+  const next = {...crmOf(id), ...patch, updated_at:new Date().toISOString()};
+  if(!next.status) next.status="sin_contactar";
+  S.crm.set(id, next); rerender();
+  try{ await enqueue("crm/"+id, ()=>S.db.doc("crm/"+id).set(next)); if(!silent) flashSaved(); return true; }
+  catch(e){ writeErr(e); return false; }
+}
+async function saveStudio(id, patch){
+  if(!S.db) return false;
+  const cur=S.studios.get(id)||{}; const next={...cur,...patch,updated_at:todayISO()};
+  S.studios.set(id,next); rerender();
+  try{ await enqueue("studios/"+id, ()=>S.db.doc("studios/"+id).set(next)); flashSaved(); return true; }
+  catch(e){ writeErr(e); return false; }
+}
+function flashSaved(){ const el=document.getElementById("d-saved"); if(el){ el.textContent="Guardado"; clearTimeout(flashSaved._t); flashSaved._t=setTimeout(()=>{ if(el.isConnected) el.textContent=""; },1800);} }
+
+/* acción rápida: registrar contacto */
+async function logContact(id, {channel, result, note="", next}={}){
+  const c=crmOf(id), today=todayISO(); const cur=c.status||"sin_contactar";
+  const ch = channel || S.lastChannel[id] || "Llamada";
+  let status=cur; const mapped = result ? (RESULTS.find(r=>r[0]===result)||[])[1] : null;
+  if(mapped){ status = (mapped==="no_responde" && !["sin_contactar","contactado","no_responde","volver"].includes(cur)) ? cur : mapped; }
+  else if(cur==="sin_contactar"||cur==="volver"||cur==="no_responde") status="contactado";
+  const entry={date:today, channel:ch, result: result || "Contactado", note:note.trim()};
+  const patch={status, last_contact:today, contact_count:(c.contact_count||0)+1, history:[entry, ...(c.history||[])].slice(0,200)};
+  if(next!==undefined) patch.next_contact=next;
+  else if(c.next_contact && c.next_contact<=today) patch.next_contact="";
+  const before={...c};
+  const ok=await saveCrm(id, patch, {silent:true});
+  if(ok) toast(`${S.studios.get(id)?.name||"Estudio"}: ${entry.result.toLowerCase()} por ${ch.toLowerCase()}`, {label:"Deshacer", fn:()=>{ S.crm.set(id,before); saveCrm(id,before); }});
+}
+async function setNext(id, iso){ await saveCrm(id,{next_contact:iso||""},{silent:true}); toast(iso?`Próximo contacto: ${fdate(iso)}`:"Seguimiento quitado"); }
+
+/* ============ conjuntos derivados ============ */
+function allIds(){ return [...S.studios.keys()]; }
+function metrics(ids){
+  const t=todayISO(); const m={total:0,nuevos:0,sin:0,contactados:0,respondieron:0,interesados:0,no_int:0,seguimiento:0,clientes:0};
+  for(const id of ids){ const st=S.studios.get(id); const c=crmOf(id); const s=c.status||"sin_contactar"; m.total++;
+    if(s==="sin_contactar"){ m.sin++; if(st.created_at && daysBetween(st.created_at,t)<=7) m.nuevos++; } else m.contactados++;
+    if(RESPONDED.has(s)) m.respondieron++; if(INTEREST.has(s)) m.interesados++; if(s==="no_interesado") m.no_int++; if(s==="cliente") m.clientes++;
+    if(isPending(c,t)) m.seguimiento++; }
+  return m;
+}
+function haystack(id){ const s=S.studios.get(id), c=crmOf(id);
+  return norm([s.name,s.google_maps_name,s.neighborhood,s.address,s.phone,s.whatsapp,s.instagram,s.email,c.contact_name,c.contact_phone,c.whatsapp,c.instagram,c.email,c.notes,(c.history||[]).map(x=>x.note).join(" ")].join(" ")); }
+function passes(id, f=S.f, q=S.q, quick=S.quick){
+  const s=S.studios.get(id), c=crmOf(id), st=c.status||"sin_contactar", t=todayISO();
+  if(quick==="sin" && st!=="sin_contactar") return false;
+  if(quick==="seg" && !isPending(c,t)) return false;
+  if(quick==="int" && !INTEREST.has(st)) return false;
+  if(quick==="cli" && st!=="cliente") return false;
+  if(quick==="nr" && st!=="no_responde") return false;
+  if(f.barrio && s.neighborhood!==f.barrio) return false;
+  if(f.zona && zoneOf(s.neighborhood)!==f.zona) return false;
+  if(f.status.length && !f.status.includes(st)) return false;
+  for(const k of f.has){
+    if(k==="phone" && !(s.phone||c.contact_phone)) return false;
+    if(k==="ig" && !(s.instagram||c.instagram)) return false;
+    if(k==="wa" && !waNumber(s,c)) return false;
+    if(k==="email" && !(s.email||c.email)) return false;
+    if(k==="web" && !s.website) return false; }
+  if(f.last){ const L=c.last_contact; if(f.last==="never" && L) return false; if(f.last==="7" && !(L && daysBetween(L,t)<=7)) return false;
+    if(f.last==="o7" && !(L && daysBetween(L,t)>7)) return false; if(f.last==="o30" && !(L && daysBetween(L,t)>30)) return false; }
+  if(f.next){ const N=c.next_contact; if(f.next==="due" && !isPending(c,t)) return false; if(f.next==="week" && !(N && N>=t && daysBetween(t,N)<=7)) return false;
+    if(f.next==="none" && N) return false; if(f.next==="any" && !N) return false; }
+  if(f.type && !(s.studio_type||[]).includes(f.type)) return false;
+  if(f.service && !(s.services||[]).includes(f.service)) return false;
+  if(f.rating && !((s.rating||0) > Number(f.rating) - 1e-9 && s.rating!=null)) return false;
+  if(f.review && !s.needs_review) return false;
+  if(q){ const hs=haystack(id); for(const w of norm(q).split(" ")) if(w && !hs.includes(w)) return false; }
+  return true;
+}
+function prioScore(id){ const c=crmOf(id), s=S.studios.get(id), st=c.status||"sin_contactar", t=todayISO(); let p=0;
+  if(isPending(c,t)) p+=1000 - Math.max(0,daysBetween(c.next_contact,t))*-1; if(INTEREST.has(st)) p+=600; if(st==="volver") p+=400; if(st==="respondio") p+=350;
+  if(st==="sin_contactar") p+=200; if(CLOSED.has(st)) p-=500;
+  p += (s.rating||0)*8 + Math.log10(1+(s.review_count||0))*10 + (waNumber(s,c)?6:0) + (s.phone?4:0); return p; }
+function sortIds(ids, how=S.sort){ const cmpName=(a,b)=>S.studios.get(a).name.localeCompare(S.studios.get(b).name,"es");
+  const by={ name:cmpName, rating:(a,b)=>(S.studios.get(b).rating||0)-(S.studios.get(a).rating||0)||cmpName(a,b),
+    reviews:(a,b)=>(S.studios.get(b).review_count||0)-(S.studios.get(a).review_count||0),
+    next:(a,b)=>(crmOf(a).next_contact||"9999").localeCompare(crmOf(b).next_contact||"9999")||cmpName(a,b),
+    last:(a,b)=>(crmOf(b).last_contact||"").localeCompare(crmOf(a).last_contact||"")||cmpName(a,b),
+    prio:(a,b)=>prioScore(b)-prioScore(a) };
+  return ids.sort(by[how]||by.prio); }
+function filtered(){ return sortIds(allIds().filter(id=>passes(id))); }
+
+/* ============ render ============ */
+let raf=0; function rerender(){ cancelAnimationFrame(raf); raf=requestAnimationFrame(renderAll); }
+function renderAll(){
+  const n=S.studios.size; $("#tab-lista-n").textContent = n? n : "";
+  const hoyN = todayList().reduce((a,g)=>a+g.ids.length,0); $("#tab-hoy-n").textContent = n? hoyN : "";
+  if(S.tab==="panel") renderPanel(); if(S.tab==="hoy") renderToday(); if(S.tab==="lista") renderList(); if(S.tab==="mapa") renderMap(); if(S.tab==="datos") renderData();
+  if(S.tab==="lista") renderDetail();
+}
+function setTab(t){ S.tab=t; document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.tab===t)));
+  document.querySelectorAll(".view").forEach(v=>v.hidden = v.dataset.view!==t); try{ localStorage.setItem("ec.tab",t);}catch(e){} $("#pop").hidden=true; renderAll(); }
+
+/* ---- panel ---- */
+function renderPanel(){
+  if(!S.ready.studios){ return; }
+  if(!S.studios.size){ $("#kpis").innerHTML=`<div class="empty" style="grid-column:1/-1">Todavía no hay estudios cargados. Importá un CSV o JSON desde <b>Importar / Exportar</b>.</div>`; $("#barrio-table tbody").innerHTML=""; return; }
+  const m=metrics(allIds());
+  const K=[["total","Total de estudios",m.total,null,"all"],["nuevos","Nuevos (últimos 7 días)",m.nuevos,"sin_contactar","sin"],["sin","Sin contactar",m.sin,"sin_contactar","sin"],
+    ["contactados","Contactados",m.contactados,"contactado",null],["respondieron","Respondieron",m.respondieron,"respondio",null],["interesados","Interesados",m.interesados,"interesado","int"],
+    ["no_int","No interesados",m.no_int,"no_interesado",null],["seguimiento","Seguimiento pendiente",m.seguimiento,"volver","seg"],["clientes","Clientes",m.clientes,"cliente","cli"]];
+  $("#kpis").innerHTML = K.map(([k,l,v,st,q])=>`<button class="kpi ${k==="total"?"total":""}" data-k="${k}" data-q="${q||""}">${st?`<span class="dot s-${st}"></span>`:""}<span class="v">${v}</span><span class="l">${h(l)}</span></button>`).join("");
+  $("#kpis").querySelectorAll(".kpi").forEach(b=>b.onclick=()=>{ const k=b.dataset.k; S.f=blankFilters(); S.q=""; $("#q").value="";
+    S.quick=b.dataset.q||"all"; if(k==="contactados"){S.quick="all"; S.f.status=STATUS.map(s=>s[0]).filter(s=>s!=="sin_contactar");}
+    if(k==="respondieron"){S.quick="all"; S.f.status=[...RESPONDED];} if(k==="no_int"){S.quick="all"; S.f.status=["no_interesado"];} S.shown=PAGE; setTab("lista"); });
+  const by=new Map(); for(const id of allIds()){ const b=S.studios.get(id).neighborhood||"Sin barrio"; if(!by.has(b)) by.set(b,[]); by.get(b).push(id); }
+  const rows=[...by.entries()].map(([b,ids])=>[b,metrics(ids)]).sort((a,b)=>b[1].total-a[1].total||a[0].localeCompare(b[0],"es"));
+  const max=Math.max(...rows.map(r=>r[1].total));
+  const cell=v=>`<td class="${v?"":"zero"}">${v}</td>`;
+  $("#barrio-table tbody").innerHTML = rows.map(([b,x])=>`<tr class="row" data-b="${h(b)}" tabindex="0"><td><b>${h(b)}</b></td><td class="mono faint">${COMUNA[b]?"C"+COMUNA[b]:"—"}</td><td><span class="mono">${x.total}</span><span class="bar" style="width:${Math.round(40*x.total/max)}px"></span></td>${cell(x.sin)}${cell(x.contactados)}${cell(x.respondieron)}${cell(x.interesados)}${cell(x.seguimiento)}${cell(x.clientes)}</tr>`).join("");
+  $("#barrio-table tbody").querySelectorAll("tr").forEach(tr=>{ const go=()=>{ S.f=blankFilters(); S.f.barrio=tr.dataset.b; S.quick="all"; S.q=""; $("#q").value=""; S.shown=PAGE; setTab("lista"); }; tr.onclick=go; tr.onkeydown=e=>{ if(e.key==="Enter") go(); }; });
+}
+
+/* ---- hoy ---- */
+function todayList(){
+  const t=todayISO(); const z=S.todayZone; const ids=allIds().filter(id=>!z || zoneOf(S.studios.get(id).neighborhood)===z);
+  const used=new Set(); const take=(arr)=>{ const out=arr.filter(id=>!used.has(id)); out.forEach(id=>used.add(id)); return out; };
+  const g1=take(ids.filter(id=>isPending(crmOf(id),t)).sort((a,b)=>crmOf(a).next_contact.localeCompare(crmOf(b).next_contact)));
+  const g2=take(sortIds(ids.filter(id=>{ const c=crmOf(id); return INTEREST.has(c.status) && !(c.next_contact && c.next_contact>t); }),"prio"));
+  const g3=take(sortIds(ids.filter(id=>{ const c=crmOf(id); const st=c.status||""; return ["volver","respondio","no_responde","contactado"].includes(st) && !(c.next_contact && c.next_contact>t) && (!c.last_contact || daysBetween(c.last_contact,t)>=3); }),"prio"));
+  const g4=take(sortIds(ids.filter(id=>statusOf(id)==="sin_contactar" && (S.studios.get(id).phone||waNumber(S.studios.get(id),crmOf(id)))),"prio")).slice(0,20);
+  return [{k:"seg",t:"Seguimientos pendientes",d:"Tenían fecha de contacto para hoy o antes.",ids:g1},
+          {k:"int",t:"Interesados sin próxima fecha",d:"Están avanzando y no tienen seguimiento agendado.",ids:g2},
+          {k:"otros",t:"Para retomar",d:"Contactados hace 3 días o más, sin respuesta o para volver a llamar.",ids:g3},
+          {k:"sin",t:"Sin contactar · los 20 más prometedores",d:"Con teléfono, ordenados por rating y reseñas.",ids:g4}];
+}
+function card(id, overdue){
+  const s=S.studios.get(id), c=crmOf(id), st=c.status||"sin_contactar", wa=waNumber(s,c), ig=igUrl(c.instagram||s.instagram), phone=c.contact_phone||s.phone;
+  return `<article class="card ${overdue?"overdue":""}" data-id="${id}">
+    <div class="card-top"><button class="card-name" data-open="${id}">${h(s.name)}</button>${pill(st)}</div>
+    <dl class="meta"><dt>Barrio</dt><dd>${h(s.neighborhood)}</dd>
+      <dt>Teléfono</dt><dd class="mono">${phone?h(phone):"—"}</dd>
+      <dt>Instagram</dt><dd>${ig?"@"+h(igHandle(c.instagram||s.instagram)):"—"}</dd>
+      <dt>Último</dt><dd>${fdate(c.last_contact)}</dd><dt>Próximo</dt><dd>${c.next_contact?`<b>${fdate(c.next_contact)}</b>`:"—"}</dd></dl>
+    ${c.notes?`<div class="faint" style="font-size:12.5px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical">${h(c.notes)}</div>`:""}
+    <div class="actions">${actionBtns(id,{compact:true})}</div></article>`;
+}
+function actionBtns(id,{compact=false}={}){
+  const s=S.studios.get(id), c=crmOf(id), wa=waNumber(s,c), ig=igUrl(c.instagram||s.instagram), phone=c.contact_phone||s.phone, mail=c.email||s.email;
+  const dis=v=>v?"":' aria-disabled="true" tabindex="-1"';
+  let out = `<a class="btn sm" data-ch="Llamada" data-id="${id}" href="${phone?"tel:+"+digits(phone):"#"}"${dis(phone)}>${ICON.call}Llamar</a>
+    <a class="btn sm" data-ch="WhatsApp" data-id="${id}" href="${wa?"https://wa.me/"+wa:"#"}" target="_blank" rel="noopener"${dis(wa)}>${ICON.wa}WhatsApp</a>
+    <a class="btn sm" data-ch="Instagram" data-id="${id}" href="${ig||"#"}" target="_blank" rel="noopener"${dis(ig)}>${ICON.ig}Instagram</a>`;
+  if(!compact) out += `<a class="btn sm" data-ch="Email" data-id="${id}" href="${mail?"mailto:"+h(mail):"#"}"${dis(mail)}>${ICON.mail}Email</a>
+    <a class="btn sm" href="${h(s.google_maps_url||"#")}" target="_blank" rel="noopener"${dis(s.google_maps_url)}>${ICON.map}Maps</a>`;
+  out += `<button class="btn sm primary" data-contacted="${id}">${ICON.check}Contactado</button>`;
+  return out;
+}
+function wireActions(root){
+  root.querySelectorAll("[data-ch]").forEach(a=>a.addEventListener("click",()=>{ S.lastChannel[a.dataset.id]=a.dataset.ch; }));
+  root.querySelectorAll("[data-contacted]").forEach(b=>b.onclick=()=>logContact(b.dataset.contacted));
+  root.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openStudio(b.dataset.open));
+}
+function renderToday(){
+  $("#today-date").textContent = fdate(todayISO(),{rel:false});
+  $("#today-zone").innerHTML = ["",...ZONES].map(z=>`<button class="chip" aria-pressed="${S.todayZone===z}" data-z="${z}">${z||"Toda la ciudad"}</button>`).join("");
+  $("#today-zone").querySelectorAll(".chip").forEach(b=>b.onclick=()=>{ S.todayZone=b.dataset.z; renderToday(); });
+  if(!S.ready.studios){ $("#today-groups").innerHTML='<div class="skeleton">Conectando con la base…</div>'; return; }
+  const gs=todayList();
+  $("#today-groups").innerHTML = gs.map((g,i)=>`<section class="group"><div class="group-head"><h2 class="sec" style="margin:0">${i+1}. ${h(g.t)}</h2><span class="count">${g.ids.length}</span></div>
+    ${g.ids.length? `<div class="cards">${g.ids.map(id=>card(id, g.k==="seg" && crmOf(id).next_contact<todayISO())).join("")}</div>` : `<div class="empty">${g.k==="seg"?"No hay seguimientos para hoy.":g.k==="int"?"Ningún interesado sin fecha.":g.k==="otros"?"Nada para retomar hoy.":"No quedan estudios sin contactar con teléfono en esta zona."}</div>`}
+    ${g.ids.length?`<p class="faint" style="font-size:12px;margin:8px 0 0">${h(g.d)}</p>`:""}</section>`).join("");
+  wireActions($("#today-groups"));
+}
+
+/* ---- lista ---- */
+function renderQuick(){
+  const ids=allIds(); const cnt=q=>ids.filter(id=>passes(id,S.f,S.q,q)).length;
+  const Q=[["all","Todos"],["sin","Sin contactar"],["seg","Seguimiento"],["int","Interesados"],["nr","No responde"],["cli","Clientes"]];
+  $("#quick").innerHTML=Q.map(([k,l])=>`<button class="chip" aria-pressed="${S.quick===k}" data-q="${k}">${l}<span class="n">${cnt(k)}</span></button>`).join("");
+  $("#quick").querySelectorAll(".chip").forEach(b=>b.onclick=()=>{ S.quick=b.dataset.q; S.shown=PAGE; renderList(); });
+}
+function uniq(arr){ return [...new Set(arr.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es")); }
+function renderFilters(){
+  const el=$("#filters"); const f=S.f; const all=[...S.studios.values()];
+  const barrios=uniq(all.map(s=>s.neighborhood)), types=uniq(all.flatMap(s=>s.studio_type||[])), servs=uniq(all.flatMap(s=>s.services||[]));
+  const opt=(v,l,cur)=>`<option value="${h(v)}" ${v===cur?"selected":""}>${h(l)}</option>`;
+  el.innerHTML=`
+   <div class="field"><label for="f-barrio">Barrio</label><select id="f-barrio">${opt("","Todos",f.barrio)}${barrios.map(b=>opt(b,b,f.barrio)).join("")}</select></div>
+   <div class="field"><label for="f-zona">Zona</label><select id="f-zona">${opt("","Toda la ciudad",f.zona)}${ZONES.map(z=>opt(z,z,f.zona)).join("")}</select></div>
+   <div class="field"><label for="f-type">Tipo de estudio</label><select id="f-type">${opt("","Todos",f.type)}${types.map(t=>opt(t,t,f.type)).join("")}</select></div>
+   <div class="field"><label for="f-service">Servicio</label><select id="f-service">${opt("","Todos",f.service)}${servs.map(t=>opt(t,t,f.service)).join("")}</select></div>
+   <div class="field"><label for="f-rating">Rating</label><select id="f-rating">${[["","Cualquiera"],["4","4 o más"],["4.5","4,5 o más"],["4.8","4,8 o más"],["5","5"]].map(([v,l])=>opt(v,l,f.rating)).join("")}</select></div>
+   <div class="field"><label for="f-last">Último contacto</label><select id="f-last">${[["","Cualquiera"],["never","Nunca contactado"],["7","En los últimos 7 días"],["o7","Hace más de 7 días"],["o30","Hace más de 30 días"]].map(([v,l])=>opt(v,l,f.last)).join("")}</select></div>
+   <div class="field"><label for="f-next">Próximo contacto</label><select id="f-next">${[["","Cualquiera"],["due","Vencido o para hoy"],["week","En los próximos 7 días"],["any","Con fecha"],["none","Sin fecha"]].map(([v,l])=>opt(v,l,f.next)).join("")}</select></div>
+   <div class="field" style="grid-column:1/-1"><span class="lbl">Tiene</span><div class="checks">${[["phone","Teléfono"],["wa","WhatsApp"],["ig","Instagram"],["email","Email"],["web","Web"]].map(([k,l])=>`<button class="chip" aria-pressed="${f.has.includes(k)}" data-has="${k}">${l}</button>`).join("")}
+      <button class="chip" aria-pressed="${f.review}" id="f-review">Marcados para revisar</button></div></div>
+   <div class="field" style="grid-column:1/-1"><span class="lbl">Estado</span><div class="checks">${STATUS.map(([k,l])=>`<button class="chip" aria-pressed="${f.status.includes(k)}" data-st="${k}">${l}</button>`).join("")}</div></div>
+   <div class="actions" style="grid-column:1/-1"><button class="btn sm" id="f-clear">Limpiar filtros</button></div>`;
+  const upd=()=>{ S.shown=PAGE; renderList(); };
+  ["barrio","zona","type","service","rating","last","next"].forEach(k=>$("#f-"+k).onchange=e=>{ S.f[k]=e.target.value; upd(); });
+  el.querySelectorAll("[data-has]").forEach(b=>b.onclick=()=>{ const k=b.dataset.has; S.f.has=S.f.has.includes(k)?S.f.has.filter(x=>x!==k):[...S.f.has,k]; upd(); });
+  el.querySelectorAll("[data-st]").forEach(b=>b.onclick=()=>{ const k=b.dataset.st; S.f.status=S.f.status.includes(k)?S.f.status.filter(x=>x!==k):[...S.f.status,k]; upd(); });
+  $("#f-review").onclick=()=>{ S.f.review=!S.f.review; upd(); };
+  $("#f-clear").onclick=()=>{ S.f=blankFilters(); upd(); };
+}
+function activeFilterCount(){ const f=S.f; return ["barrio","zona","type","service","rating","last","next"].filter(k=>f[k]).length + f.has.length + (f.status.length?1:0) + (f.review?1:0); }
+function renderList(){
+  renderQuick();
+  const n=activeFilterCount(); $("#filters-n").textContent=n?`· ${n}`:"";
+  if(!$("#filters").hidden) renderFilters();
+  $("#sort").value=S.sort;
+  if(!S.ready.studios){ $("#rows").innerHTML='<div class="skeleton" style="padding:16px">Conectando con la base…</div>'; return; }
+  const ids=filtered(); const shown=ids.slice(0,S.shown);
+  $("#result-n").textContent = `${ids.length} ${ids.length===1?"estudio":"estudios"}${S.f.barrio?" en "+S.f.barrio:""}`;
+  $("#rows").innerHTML = ids.length ? `<div class="srow-head"><span>Estudio</span><span class="h-br">Barrio</span><span>Estado</span></div>` + shown.map(id=>{ const s=S.studios.get(id), c=crmOf(id);
+    const sub=[c.next_contact?`próx. ${fdate(c.next_contact)}`:"", s.rating!=null?`★ ${String(s.rating).replace(".",",")} (${s.review_count||0})`:"", (s.studio_type||[]).slice(0,2).join(" · ")].filter(Boolean).join("  ·  ");
+    return `<button class="srow" data-id="${id}" aria-current="${S.sel===id}"><span style="min-width:0"><span class="nm" style="display:block">${h(s.name)}</span><span class="sub" style="display:block">${h(sub)}</span></span><span class="br">${h(s.neighborhood)}</span>${pill(c.status||"sin_contactar")}</button>`; }).join("")
+    : `<div class="empty" style="border:0">Ningún estudio coincide con la búsqueda y los filtros. <button class="btn sm" id="clear-all" style="margin-left:6px">Limpiar todo</button></div>`;
+  $("#rows").querySelectorAll(".srow").forEach(b=>b.onclick=()=>openStudio(b.dataset.id));
+  const ca=$("#clear-all"); if(ca) ca.onclick=()=>{ S.f=blankFilters(); S.q=""; $("#q").value=""; S.quick="all"; renderList(); };
+  $("#more").innerHTML = ids.length>S.shown ? `<button class="btn" id="more-btn">Mostrar ${Math.min(PAGE,ids.length-S.shown)} más (${ids.length-S.shown} restantes)</button>` : "";
+  const mb=$("#more-btn"); if(mb) mb.onclick=()=>{ S.shown+=PAGE; renderList(); };
+}
+function openStudio(id){ S.sel=id; S.editStudio=false; if(S.tab!=="lista") setTab("lista"); else { renderList(); renderDetail(); } try{ history.replaceState(null,"","#"+id);}catch(e){}
+  if(window.innerWidth<1080){ document.body.style.overflow="hidden"; } else { const d=$("#detail"); d.scrollTop=0; } }
+function closeDetail(){ S.sel=null; $("#detail").hidden=true; $("#list-layout").classList.remove("has-detail"); document.body.style.overflow=""; renderList(); }
+
+/* ---- ficha ---- */
+let detailSig="";
+function renderDetail(){
+  const d=$("#detail"); const id=S.sel; const s=id && S.studios.get(id);
+  if(!s){ d.hidden=true; $("#list-layout").classList.remove("has-detail"); return; }
+  const c=crmOf(id);
+  // no redibujar mientras el usuario escribe en un campo de la ficha
+  const sig=JSON.stringify([id,s,c,S.editStudio,S.canCrm]);
+  if(!d.hidden && sig===detailSig) return;
+  const active=document.activeElement;
+  if(!d.hidden && d.dataset.id===id && d.contains(active) && active.matches("input,textarea")) return;
+  detailSig=sig; d.dataset.id=id;
+  d.hidden=false; $("#list-layout").classList.add("has-detail");
+  const st=c.status||"sin_contactar", t=todayISO(), draft=S.logDraft[id]||{};
+  const opt=(v,l,cur)=>`<option value="${h(v)}" ${v===cur?"selected":""}>${h(l)}</option>`;
+  const ro = S.canCrm===false;
+  const link=(v,href,label)=>v?`<a href="${h(href)}" target="_blank" rel="noopener">${h(label||v)}</a>`:'<span class="faint">—</span>';
+  const copyable=v=>v?`<span class="mono">${h(v)}</span><button class="copy" data-copy="${h(v)}">copiar</button>`:'<span class="faint">—</span>';
+  d.innerHTML=`
+  <div class="d-head">
+    <div class="d-title"><div style="min-width:0"><h3>${h(s.name)}</h3><div class="d-sub">${h(s.neighborhood)}${COMUNA[s.neighborhood]?` · Comuna ${COMUNA[s.neighborhood]}`:""} · ${h((s.studio_type||[]).join(", "))}</div></div>
+      <button class="btn sm ghost" id="d-close" aria-label="Cerrar ficha">${ICON.close}</button></div>
+    <div class="actions">${actionBtns(id)}</div>
+  </div>
+  <div class="d-body">
+    ${ro?`<div class="flag">Tu acceso a esta página no permite ver ni editar la relación comercial. Solo ves los datos públicos del estudio.</div>`:`
+    <div class="zone-crm">
+      <div class="block-h"><span class="zone-tag">Relación comercial · privado</span><span class="saved" id="d-saved"></span></div>
+      <div class="block">
+        <div class="two">
+          <div class="field"><label for="c-status">Estado</label><select id="c-status">${STATUS.map(([k,l])=>opt(k,l,st)).join("")}</select></div>
+          <div class="field"><label for="c-interest">Nivel de interés</label><select id="c-interest">${[["","Sin definir"],["bajo","Bajo"],["medio","Medio"],["alto","Alto"]].map(([k,l])=>opt(k,l,c.interest||"")).join("")}</select></div>
+        </div>
+        <div class="field"><span class="lbl">Próximo contacto ${c.next_contact?`· <b style="text-transform:none;letter-spacing:0;color:var(--fg)">${fdate(c.next_contact)}</b>`:""}</span>
+          <div class="actions"><button class="btn sm" data-next="1">Mañana</button><button class="btn sm" data-next="3">En 3 días</button><button class="btn sm" data-next="7">En 1 semana</button><button class="btn sm" data-next="14">En 2 semanas</button>
+          <input type="date" id="c-next" class="in" value="${h(c.next_contact||"")}" style="width:auto;height:30px" aria-label="Elegir fecha">${c.next_contact?'<button class="btn sm ghost" data-next="x">Quitar</button>':""}</div></div>
+        <div class="kv"><dt>Último contacto</dt><dd>${fdate(c.last_contact)}</dd><dt>Contactos</dt><dd class="mono">${c.contact_count||0}</dd></div>
+      </div>
+      <div class="block">
+        <div class="block-h"><h4>Registrar contacto</h4></div>
+        <div class="chips" id="lg-ch">${CHANNELS.map(x=>`<button class="chip" aria-pressed="${(draft.channel||S.lastChannel[id]||"Llamada")===x}" data-v="${x}">${x}</button>`).join("")}</div>
+        <div class="chips" id="lg-rs">${RESULTS.map(([x])=>`<button class="chip" aria-pressed="${draft.result===x}" data-v="${x}">${x}</button>`).join("")}</div>
+        <input class="in" id="lg-note" placeholder="Nota breve (opcional): con quién hablaste, qué dijo…" value="${h(draft.note||"")}">
+        <div class="actions"><button class="btn sm accent" id="lg-save">Guardar en el historial</button></div>
+      </div>
+      <div class="block">
+        <div class="block-h"><h4>Notas</h4></div>
+        <textarea class="in" id="c-notes" placeholder="Ej.: hablar con el dueño · pidió que lo llame el viernes · ya usa otra plataforma · preguntar cantidad de salas">${h(c.notes||"")}</textarea>
+      </div>
+      <div class="block">
+        <div class="block-h"><h4>Historial</h4><span class="faint mono" style="font-size:11px">${(c.history||[]).length}</span></div>
+        ${(c.history||[]).length?`<ul class="hist">${c.history.map((x,i)=>`<li><span class="mono">${h(x.date.slice(8,10)+"/"+x.date.slice(5,7))}</span><span><b>${h(x.channel)}</b> — ${h(x.result)}${x.note?`<br><span class="muted">${h(x.note)}</span>`:""}</span><button class="x" data-del="${i}" aria-label="Borrar esta entrada">×</button></li>`).join("")}</ul>`:'<div class="faint" style="font-size:13px">Todavía no hay contactos registrados.</div>'}
+      </div>
+      <div class="block">
+        <div class="block-h"><h4>Persona de contacto</h4></div>
+        <div class="two">
+          <div class="field"><label for="c-contact_name">Nombre</label><input id="c-contact_name" value="${h(c.contact_name||"")}"></div>
+          <div class="field"><label for="c-contact_role">Cargo / rol</label><input id="c-contact_role" value="${h(c.contact_role||"")}" placeholder="Dueño, ingeniero, recepción…"></div>
+          <div class="field"><label for="c-contact_phone">Teléfono</label><input id="c-contact_phone" value="${h(c.contact_phone||"")}" inputmode="tel"></div>
+          <div class="field"><label for="c-whatsapp">WhatsApp</label><input id="c-whatsapp" value="${h(c.whatsapp||"")}" inputmode="tel" placeholder="${h(waNumber(s,{})?"+"+waNumber(s,{}):"")}"></div>
+          <div class="field"><label for="c-instagram">Instagram</label><input id="c-instagram" value="${h(c.instagram||"")}" placeholder="@usuario"></div>
+          <div class="field"><label for="c-email">Email</label><input id="c-email" value="${h(c.email||"")}" inputmode="email"></div>
+          <div class="field"><label for="c-preferred">Medio preferido</label><select id="c-preferred">${["",...CHANNELS].map(x=>opt(x,x||"Sin definir",c.preferred||"")).join("")}</select></div>
+          <div class="field"><label for="c-rejection">Motivo de rechazo</label><input id="c-rejection" value="${h(c.rejection||"")}" placeholder="${st==="no_interesado"?"¿Por qué no le interesó?":""}"></div>
+        </div>
+      </div>
+    </div>`}
+    <div class="block">
+      <div class="block-h"><h4>Datos del estudio · se podrán usar en la app</h4>${S.canStudio===false?"":`<button class="btn sm" id="s-edit">${S.editStudio?"Cancelar":"Editar"}</button>`}</div>
+      ${s.needs_review||s.review_notes?`<div class="flag">${s.needs_review?"<b>A revisar.</b> ":""}${h(s.review_notes||"")}</div>`:""}
+      ${S.editStudio? studioForm(s) : `
+      <dl class="kv">
+        <dt>Dirección</dt><dd>${h(s.address)}</dd>
+        <dt>Teléfono</dt><dd>${copyable(s.phone)}</dd>
+        <dt>WhatsApp</dt><dd>${s.whatsapp?copyable(s.whatsapp):(waNumber(s,{})?`<span class="mono">+${waNumber(s,{})}</span> <span class="faint">(celular, posible WhatsApp)</span>`:'<span class="faint">—</span>')}</dd>
+        <dt>Instagram</dt><dd>${link(s.instagram, igUrl(s.instagram), s.instagram?"@"+igHandle(s.instagram):"")}</dd>
+        <dt>Email</dt><dd>${copyable(s.email)}</dd>
+        <dt>Web</dt><dd>${link(s.website, webUrl(s.website))}</dd>
+        <dt>Facebook</dt><dd>${link(s.facebook, webUrl(s.facebook))}</dd>
+        <dt>Google Maps</dt><dd>${link(s.google_maps_url, s.google_maps_url, "Abrir ficha")}</dd>
+        <dt>Rating</dt><dd>${s.rating!=null?`<span class="mono">★ ${String(s.rating).replace(".",",")}</span> · ${s.review_count||0} reseñas`:"—"}</dd>
+        <dt>Horarios</dt><dd class="mono" style="font-size:12px">${h(s.opening_hours||"—")}</dd>
+        <dt>Servicios</dt><dd><div class="tags">${(s.services||[]).map(x=>`<span class="tag">${h(x)}</span>`).join("")||"—"}</div></dd>
+        <dt>Descripción</dt><dd>${h(s.description||"—")}</dd>
+        <dt>Categoría Maps</dt><dd>${h(s.google_category||"—")}</dd>
+        <dt>Coordenadas</dt><dd class="mono" style="font-size:12px">${s.lat!=null?`${s.lat}, ${s.lng}`:"—"}</dd>
+        <dt>Fuente</dt><dd>${h(s.source||"—")} · verificado ${h(s.verified_at||"—")}</dd>
+      </dl>`}
+    </div>
+  </div>`;
+  wireActions(d);
+  $("#d-close").onclick=closeDetail;
+  d.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>copyText(b.dataset.copy));
+  const se=$("#s-edit"); if(se) se.onclick=()=>{ S.editStudio=!S.editStudio; detailSig=""; renderDetail(); };
+  if(S.editStudio) wireStudioForm(id);
+  if(ro) return;
+  $("#c-status").onchange=e=>{ const v=e.target.value; const p={status:v}; saveCrm(id,p); };
+  $("#c-interest").onchange=e=>saveCrm(id,{interest:e.target.value});
+  d.querySelectorAll("[data-next]").forEach(b=>b.onclick=()=>{ const v=b.dataset.next; setNext(id, v==="x"?"":addDays(todayISO(),Number(v))); });
+  $("#c-next").onchange=e=>setNext(id,e.target.value);
+  const dr=()=>S.logDraft[id]||(S.logDraft[id]={});
+  d.querySelectorAll("#lg-ch .chip").forEach(b=>b.onclick=()=>{ dr().channel=b.dataset.v; d.querySelectorAll("#lg-ch .chip").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); });
+  d.querySelectorAll("#lg-rs .chip").forEach(b=>b.onclick=()=>{ const on=dr().result!==b.dataset.v; dr().result=on?b.dataset.v:undefined; d.querySelectorAll("#lg-rs .chip").forEach(x=>x.setAttribute("aria-pressed",String(on&&x===b))); });
+  $("#lg-note").oninput=e=>{ dr().note=e.target.value; };
+  $("#lg-save").onclick=async()=>{ const x=dr(); const ch=x.channel||S.lastChannel[id]||"Llamada"; delete S.logDraft[id]; detailSig=""; await logContact(id,{channel:ch,result:x.result,note:x.note||""}); };
+  d.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{ const i=Number(b.dataset.del); const hist=[...(crmOf(id).history||[])]; const [gone]=hist.splice(i,1);
+    saveCrm(id,{history:hist},{silent:true}); toast("Entrada borrada",{label:"Deshacer",fn:()=>{ const h2=[...(crmOf(id).history||[])]; h2.splice(i,0,gone); saveCrm(id,{history:h2}); }}); });
+  let nt; $("#c-notes").oninput=e=>{ clearTimeout(nt); const v=e.target.value; nt=setTimeout(()=>{ if(v!==(crmOf(id).notes||"")) saveCrm(id,{notes:v}); },900); };
+  $("#c-notes").onblur=e=>{ clearTimeout(nt); if(e.target.value!==(crmOf(id).notes||"")) saveCrm(id,{notes:e.target.value}); };
+  ["contact_name","contact_role","contact_phone","whatsapp","instagram","email","rejection"].forEach(k=>{ const el=$("#c-"+k); el.onchange=()=>{ if(el.value!==(crmOf(id)[k]||"")) saveCrm(id,{[k]:el.value.trim()}); }; });
+  $("#c-preferred").onchange=e=>saveCrm(id,{preferred:e.target.value});
+}
+const SFIELDS=[["name","Nombre"],["neighborhood","Barrio"],["address","Dirección"],["phone","Teléfono"],["whatsapp","WhatsApp"],["instagram","Instagram"],["email","Email"],["website","Web"],["facebook","Facebook"],["opening_hours","Horarios"],["description","Descripción"]];
+function studioForm(s){
+  return `<div class="two">${SFIELDS.map(([k,l])=>`<div class="field" ${k==="description"||k==="address"?'style="grid-column:1/-1"':""}><label for="s-${k}">${l}</label>${k==="description"?`<textarea id="s-${k}">${h(s[k]||"")}</textarea>`:`<input id="s-${k}" value="${h(s[k]||"")}">`}</div>`).join("")}
+    <div class="field" style="grid-column:1/-1"><label for="s-services">Servicios (separados por coma)</label><input id="s-services" value="${h((s.services||[]).join(", "))}"></div>
+    <div class="field" style="grid-column:1/-1"><label for="s-studio_type">Tipo de estudio (separados por coma)</label><input id="s-studio_type" value="${h((s.studio_type||[]).join(", "))}"></div>
+    <label class="chip" style="grid-column:1/-1;display:flex;gap:8px;align-items:center;border-radius:10px"><input type="checkbox" id="s-needs_review" ${s.needs_review?"checked":""}> Marcado para revisar</label></div>
+    <div class="actions"><button class="btn sm primary" id="s-save">Guardar datos del estudio</button></div>`;
+}
+function wireStudioForm(id){
+  $("#s-save").onclick=async()=>{ const p={}; SFIELDS.forEach(([k])=>p[k]=$("#s-"+k).value.trim());
+    p.services=$("#s-services").value.split(",").map(x=>x.trim()).filter(Boolean); p.studio_type=$("#s-studio_type").value.split(",").map(x=>x.trim()).filter(Boolean);
+    p.needs_review=$("#s-needs_review").checked; p.verified_at=todayISO(); p.source=(S.studios.get(id).source||"")+(String(S.studios.get(id).source||"").includes("manual")?"":" + edición manual");
+    S.editStudio=false; detailSig=""; await saveStudio(id,p); };
+}
+
+/* ---- mapa ---- */
+const MAPB={minLat:-34.708,maxLat:-34.525,minLng:-58.535,maxLng:-58.33}; const KX=Math.cos(34.62*Math.PI/180);
+const W=(MAPB.maxLng-MAPB.minLng)*KX*1000, H=(MAPB.maxLat-MAPB.minLat)*1000;
+const proj=(lat,lng)=>[(lng-MAPB.minLng)*KX*1000,(MAPB.maxLat-lat)*1000];
+let vb=null;
+function statusColorVar(st){ return {sin_contactar:"--st-new",contactado:"--st-touch",no_responde:"--st-mute",respondio:"--st-wait",volver:"--st-wait",interesado:"--st-hot",reunion:"--st-hot",demo:"--st-hot",negociacion:"--st-hot",cliente:"--st-won",no_interesado:"--st-lost"}[st]; }
+function renderMap(){
+  const svg=$("#map"); if(!vb) vb={x:0,y:0,w:W,h:H}; svg.setAttribute("viewBox",`${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+  const ids=S.ready.studios?filtered():[]; $("#map-n").textContent=`${ids.length} estudios en el mapa`;
+  const r=Math.max(1.1, 2.6*vb.w/W);
+  let g=`<rect x="-50" y="-50" width="${W+100}" height="${H+100}" style="fill:var(--map-bg)"/>`;
+  for(let x=0;x<W;x+=10) g+=`<line x1="${x}" y1="-50" x2="${x}" y2="${H+50}" style="stroke:var(--map-grid)" stroke-width="${0.18*vb.w/W}"/>`;
+  for(let y=0;y<H;y+=10) g+=`<line x1="-50" y1="${y}" x2="${W+50}" y2="${y}" style="stroke:var(--map-grid)" stroke-width="${0.18*vb.w/W}"/>`;
+  const [rx,ry]=proj(-34.60,-58.345); g+=`<text x="${rx}" y="${ry}" style="fill:var(--fg-3);font-family:var(--font-mono)" font-size="${3*vb.w/W}" text-anchor="middle" transform="rotate(-62 ${rx} ${ry})">RÍO DE LA PLATA →</text>`;
+  const cent=new Map(); for(const id of allIds()){ const s=S.studios.get(id); if(s.lat==null) continue; const b=s.neighborhood; const c=cent.get(b)||{la:0,ln:0,n:0}; c.la+=s.lat;c.ln+=s.lng;c.n++; cent.set(b,c); }
+  for(const [b,c] of cent){ const [x,y]=proj(c.la/c.n,c.ln/c.n); g+=`<text x="${x}" y="${y-4*vb.w/W}" text-anchor="middle" font-size="${2.2*vb.w/W}" style="fill:var(--fg-3);font-family:var(--font-mono);pointer-events:none;letter-spacing:.05em">${h(b.toUpperCase())}</text>`; }
+  for(const id of ids){ const s=S.studios.get(id); if(s.lat==null) continue; const [x,y]=proj(s.lat,s.lng); const st=statusOf(id);
+    g+=`<g class="mk" data-id="${id}" tabindex="0" role="button" aria-label="${h(s.name)}"><circle cx="${x}" cy="${y}" r="${r}" style="fill:var(${statusColorVar(st)})"/></g>`; }
+  svg.innerHTML=g;
+  svg.querySelectorAll(".mk").forEach(m=>{ const open=e=>{ e.stopPropagation(); showPop(m.dataset.id, m); }; m.addEventListener("click",open); m.addEventListener("keydown",e=>{ if(e.key==="Enter") open(e); }); });
+  const groups=[["sin_contactar","Sin contactar"],["contactado","Contactado"],["respondio","Respondió / volver"],["interesado","Interesado"],["cliente","Cliente"],["no_interesado","No interesado"],["no_responde","No responde"]];
+  $("#legend").innerHTML=groups.map(([k,l])=>`<span><span class="dot s-${k}"></span>${l}</span>`).join("");
+}
+function showPop(id, el){
+  const s=S.studios.get(id), c=crmOf(id); const wrap=$("#map-wrap").getBoundingClientRect(); const b=el.getBoundingClientRect();
+  const p=$("#pop"); p.innerHTML=`<div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><b style="font-size:14.5px">${h(s.name)}</b><button class="btn sm ghost" id="pop-x" aria-label="Cerrar">${ICON.close}</button></div>
+    <div class="d-sub">${h(s.neighborhood)} · ${s.rating!=null?"★ "+String(s.rating).replace(".",",")+" ("+(s.review_count||0)+")":"sin rating"}</div><div>${pill(c.status||"sin_contactar")}</div>
+    <div class="actions"><button class="btn sm primary" data-open="${id}">Ver ficha</button>${actionBtns(id).replace(/<button class="btn sm primary" data-contacted[\s\S]*$/,"")}</div>`;
+  p.hidden=false; const left=Math.min(Math.max(10,b.left-wrap.left+12), wrap.width-p.offsetWidth-10); const top=Math.min(Math.max(10,b.top-wrap.top+12), wrap.height-p.offsetHeight-10);
+  p.style.left=left+"px"; p.style.top=top+"px"; wireActions(p); $("#pop-x").onclick=()=>p.hidden=true;
+}
+function zoom(f, cx, cy){ if(!vb) return; const nw=Math.min(W*1.2,Math.max(W/14,vb.w*f)), nh=nw*H/W; cx=cx??vb.x+vb.w/2; cy=cy??vb.y+vb.h/2;
+  vb={x:cx-(cx-vb.x)*nw/vb.w, y:cy-(cy-vb.y)*nh/vb.h, w:nw, h:nh}; $("#pop").hidden=true; renderMap(); }
+function initMap(){
+  const svg=$("#map"); let drag=null;
+  $("#zin").onclick=()=>zoom(0.6); $("#zout").onclick=()=>zoom(1/0.6); $("#zreset").onclick=()=>{ vb={x:0,y:0,w:W,h:H}; $("#pop").hidden=true; renderMap(); };
+  const toSvg=(e)=>{ const r=svg.getBoundingClientRect(); const sc=Math.max(vb.w/r.width, vb.h/r.height); const ox=(r.width*sc-vb.w)/2, oy=(r.height*sc-vb.h)/2; return [vb.x-ox+(e.clientX-r.left)*sc, vb.y-oy+(e.clientY-r.top)*sc, sc]; };
+  svg.addEventListener("wheel",e=>{ e.preventDefault(); const [x,y]=toSvg(e); zoom(e.deltaY>0?1.15:0.87,x,y); },{passive:false});
+  svg.addEventListener("pointerdown",e=>{ if(e.target.closest(".mk")) return; drag={x:e.clientX,y:e.clientY,vx:vb.x,vy:vb.y,sc:toSvg(e)[2],moved:false}; svg.setPointerCapture(e.pointerId); svg.classList.add("drag"); });
+  svg.addEventListener("pointermove",e=>{ if(!drag) return; const dx=e.clientX-drag.x, dy=e.clientY-drag.y; if(Math.abs(dx)+Math.abs(dy)>3) drag.moved=true; vb.x=drag.vx-dx*drag.sc; vb.y=drag.vy-dy*drag.sc; svg.setAttribute("viewBox",`${vb.x} ${vb.y} ${vb.w} ${vb.h}`); });
+  const end=()=>{ if(drag && !drag.moved) $("#pop").hidden=true; drag=null; svg.classList.remove("drag"); };
+  svg.addEventListener("pointerup",end); svg.addEventListener("pointercancel",end);
+}
+
+/* ---- importar / exportar ---- */
+function parseCSV(text){
+  const rows=[]; let row=[], cur="", q=false; text=text.replace(/^﻿/,"");
+  const delim = (text.split("\n")[0].match(/;/g)||[]).length > (text.split("\n")[0].match(/,/g)||[]).length ? ";" : ",";
+  for(let i=0;i<text.length;i++){ const ch=text[i];
+    if(q){ if(ch==='"'){ if(text[i+1]==='"'){cur+='"';i++;} else q=false; } else cur+=ch; }
+    else if(ch==='"') q=true; else if(ch===delim){ row.push(cur); cur=""; } else if(ch==="\n"){ row.push(cur); rows.push(row); row=[]; cur=""; } else if(ch!=="\r") cur+=ch; }
+  if(cur||row.length){ row.push(cur); rows.push(row); }
+  const head=rows.shift().map(x=>x.trim()); return rows.filter(r=>r.some(x=>x.trim())).map(r=>Object.fromEntries(head.map((k,i)=>[k,r[i]??""])));
+}
+const ALIAS={name:["name","nombre"],google_maps_name:["google_maps_name"],address:["address","direccion","dirección"],neighborhood:["neighborhood","barrio"],lat:["lat","latitude","latitud"],lng:["lng","longitude","longitud"],
+  phone:["phone","telefono","teléfono"],whatsapp:["whatsapp"],website:["website","web","sitio_web"],instagram:["instagram"],facebook:["facebook"],email:["email","mail"],
+  google_place_id:["google_place_id","place_id"],google_maps_url:["google_maps_url","maps_url"],google_category:["google_category"],rating:["rating"],review_count:["review_count","reviews","reseñas"],
+  opening_hours:["opening_hours","horarios"],services:["services","servicios"],studio_type:["studio_type","tipo"],description:["description","descripcion","descripción"],source:["source","fuente"],verified_at:["verified_at"]};
+function toStudio(raw){
+  const src = raw.studio && typeof raw.studio==="object" ? raw.studio : raw; const o={};
+  const get=k=>{ for(const a of ALIAS[k]){ if(src[a]!==undefined && src[a]!==null && String(src[a]).trim()!=="") return src[a]; } return ""; };
+  for(const k of Object.keys(ALIAS)) o[k]=get(k);
+  const num=v=>{ if(v===""||v==null) return null; const n=Number(String(v).replace(",",".")); return isFinite(n)?n:null; };
+  o.lat=num(o.lat); o.lng=num(o.lng); o.rating=num(o.rating); o.review_count=num(o.review_count);
+  const list=v=>Array.isArray(v)?v.map(String):String(v||"").split(/[;|]/).map(x=>x.trim()).filter(Boolean);
+  o.services=list(o.services); o.studio_type=list(o.studio_type);
+  for(const k of Object.keys(o)) if(typeof o[k]==="string") o[k]=o[k].trim();
+  if(!o.google_maps_url && o.google_place_id) o.google_maps_url=`https://www.google.com/maps/place/?q=place_id:${o.google_place_id}`;
+  return o;
+}
+function distM(a,b){ if(a.lat==null||b.lat==null) return Infinity; const dy=(a.lat-b.lat)*111320, dx=(a.lng-b.lng)*111320*KX; return Math.hypot(dx,dy); }
+function nameSim(a,b){ const A=new Set(norm(a).split(" ").filter(w=>w.length>2&&!["estudio","studio","studios","estudios","grabacion","recording","records","sala","salas","ensayo","de","del","la","el"].includes(w))), B=new Set(norm(b).split(" ").filter(w=>w.length>2&&!["estudio","studio","studios","estudios","grabacion","recording","records","sala","salas","ensayo","de","del","la","el"].includes(w)));
+  if(!A.size||!B.size) return norm(a)===norm(b)?1:0; let i=0; A.forEach(w=>{ if(B.has(w)) i++; }); return i/Math.min(A.size,B.size); }
+function classify(inc){
+  const existing=[...S.studios.entries()];
+  if(inc.google_place_id){ const m=existing.find(([,s])=>s.google_place_id===inc.google_place_id); if(m) return {kind:"match",id:m[0],why:"mismo lugar de Google Maps"}; }
+  const ph=digits(inc.phone).slice(-8);
+  for(const [id,s] of existing){ const sim=nameSim(inc.name,s.name), d=distM(inc,s), samePh=ph && digits(s.phone).slice(-8)===ph;
+    if(sim>=0.99 && (samePh || d<80)) return {kind:"match",id,why: samePh?"mismo nombre y teléfono":"mismo nombre y ubicación"}; }
+  for(const [id,s] of existing){ const sim=nameSim(inc.name,s.name), d=distM(inc,s), samePh=ph && digits(s.phone).slice(-8)===ph;
+    if(samePh) return {kind:"maybe",id,why:"mismo teléfono con otro nombre"};
+    if(sim>=0.5 && (d<400 || (inc.neighborhood && inc.neighborhood===s.neighborhood))) return {kind:"maybe",id,why:"nombre parecido y muy cerca"};
+    if(d<15) return {kind:"maybe",id,why:"misma ubicación exacta"}; }
+  return {kind:"new"};
+}
+function fillPatch(cur, inc){
+  const patch={}, conflicts=[]; const keys=["google_maps_name","address","neighborhood","lat","lng","phone","whatsapp","website","instagram","facebook","email","google_place_id","google_maps_url","google_category","rating","review_count","opening_hours","description"];
+  for(const k of keys){ const a=cur[k], b=inc[k]; const empty=v=>v===""||v==null;
+    if(empty(b)) continue; if(empty(a)) patch[k]=b;
+    else if(["phone","address","instagram","email","website"].includes(k) && norm(a)!==norm(b) && !(k==="phone"&&digits(a).slice(-8)===digits(b).slice(-8))) conflicts.push(`${k}: "${a}" vs "${b}"`); }
+  for(const k of ["services","studio_type"]){ const add=(inc[k]||[]).filter(x=>!(cur[k]||[]).includes(x)); if(add.length && !(cur[k]||[]).length) patch[k]=inc[k]; }
+  if(conflicts.length){ patch.needs_review=true; patch.review_notes=[cur.review_notes,`Conflicto en importación ${todayISO()}: ${conflicts.join("; ")}`].filter(Boolean).join(" | "); }
+  return {patch,conflicts};
+}
+let IMP=null;
+async function onImportFile(file){
+  const out=$("#imp-out"); out.innerHTML='<div class="faint">Leyendo archivo…</div>';
+  let text; try{ text=await file.text(); }catch(e){ out.innerHTML='<div class="flag">No se pudo leer el archivo.</div>'; return; }
+  let raws=[]; try{
+    if(/\.json$/i.test(file.name) || /^\s*[\[{]/.test(text)){ const j=JSON.parse(text); raws=Array.isArray(j)?j:(j.studios||j.estudios||j.data||[]); }
+    else raws=parseCSV(text);
+  }catch(e){ out.innerHTML=`<div class="flag">El archivo no tiene un formato válido (${h(e.message)}). Usá un CSV con encabezados o un JSON con una lista de estudios.</div>`; return; }
+  const items=raws.map(toStudio).filter(o=>o.name);
+  if(!items.length){ out.innerHTML='<div class="flag">No encontré estudios en el archivo. La primera fila tiene que tener los nombres de las columnas, y al menos la columna <span class="mono">name</span>.</div>'; return; }
+  const seen=new Set(); const plan={news:[],matches:[],maybes:[],skipped:0};
+  for(const inc of items){ const key=inc.google_place_id||norm(inc.name)+"|"+digits(inc.phone).slice(-8); if(seen.has(key)){ plan.skipped++; continue; } seen.add(key);
+    const c=classify(inc); if(c.kind==="new") plan.news.push(inc); else if(c.kind==="match"){ const fp=fillPatch(S.studios.get(c.id),inc); plan.matches.push({inc,id:c.id,why:c.why,...fp}); } else plan.maybes.push({inc,id:c.id,why:c.why,choice:"skip"}); }
+  IMP=plan; renderImport();
+}
+function renderImport(){
+  const p=IMP, out=$("#imp-out"); if(!p){ out.innerHTML=""; return; }
+  const fill=p.matches.filter(m=>Object.keys(m.patch).length).length, conf=p.matches.filter(m=>m.conflicts.length).length;
+  out.innerHTML=`<dl class="kv"><dt>Nuevos</dt><dd><b class="mono">${p.news.length}</b> se van a agregar</dd>
+    <dt>Ya existentes</dt><dd><b class="mono">${p.matches.length}</b> · ${fill} con datos para completar${conf?` · ${conf} con datos contradictorios (quedan marcados para revisar)`:""}</dd>
+    <dt>Posibles duplicados</dt><dd><b class="mono">${p.maybes.length}</b> · elegí qué hacer con cada uno</dd>${p.skipped?`<dt>Repetidos en el archivo</dt><dd>${p.skipped} (se ignoran)</dd>`:""}</dl>
+    ${p.maybes.length?`<div class="dup-list">${p.maybes.map((m,i)=>{ const s=S.studios.get(m.id); return `<div class="dup"><div><b>${h(m.inc.name)}</b> <span class="faint">(archivo)</span> · ${h(m.inc.address||"")}</div><div>parece <b>${h(s.name)}</b> · ${h(s.address)} <span class="faint">— ${h(m.why)}</span></div>
+      <div class="chips">${[["skip","No importar"],["same","Es el mismo: completar datos"],["new","Es otro: agregarlo"]].map(([k,l])=>`<button class="chip" data-mi="${i}" data-c="${k}" aria-pressed="${m.choice===k}">${l}</button>`).join("")}</div></div>`; }).join("")}</div>`:""}
+    <div class="actions"><button class="btn primary" id="imp-go">Aplicar importación</button><button class="btn ghost" id="imp-cancel">Cancelar</button></div><div id="imp-prog" class="faint"></div>`;
+  out.querySelectorAll("[data-mi]").forEach(b=>b.onclick=()=>{ p.maybes[Number(b.dataset.mi)].choice=b.dataset.c; renderImport(); });
+  $("#imp-cancel").onclick=()=>{ IMP=null; $("#imp-file").value=""; renderImport(); };
+  $("#imp-go").onclick=applyImport;
+}
+function nextIds(n){ let max=0; for(const id of S.studios.keys()){ const m=/^caba-(\d+)$/.exec(id); if(m) max=Math.max(max,Number(m[1])); } return Array.from({length:n},(_,i)=>`caba-${String(max+1+i).padStart(4,"0")}`); }
+function nearestBarrio(inc){ let best=null,bd=Infinity; for(const s of S.studios.values()){ const d=distM(inc,s); if(d<bd){bd=d;best=s;} } return best?best.neighborhood:""; }
+async function applyImport(){
+  const p=IMP; if(!p||!S.db) return; const btn=$("#imp-go"); btn.disabled=true; const prog=$("#imp-prog");
+  const toCreate=[...p.news, ...p.maybes.filter(m=>m.choice==="new").map(m=>m.inc)];
+  const toMerge=[...p.matches, ...p.maybes.filter(m=>m.choice==="same").map(m=>({id:m.id,...fillPatch(S.studios.get(m.id),m.inc)}))].filter(m=>Object.keys(m.patch).length);
+  const ids=nextIds(toCreate.length); let done=0, fail=0; const total=toCreate.length+toMerge.length; const today=todayISO();
+  for(let i=0;i<toCreate.length;i++){ const inc=toCreate[i]; const nb=inc.neighborhood||nearestBarrio(inc);
+    const doc={...inc, neighborhood:nb, neighborhood_confidence: inc.neighborhood?"alta":"media", city:"Ciudad Autónoma de Buenos Aires", source:inc.source||"Importación", verified_at:inc.verified_at||today,
+      needs_review:!inc.neighborhood, review_notes: inc.neighborhood?"":"Barrio estimado por cercanía al importar; verificar", created_at:today, updated_at:today};
+    try{ await S.db.doc("studios/"+ids[i]).set(doc); S.studios.set(ids[i],doc); }catch(e){ fail++; if(e&&e.code==="quota_exceeded"){ prog.textContent="La base llegó a su límite de registros."; break; } }
+    done++; prog.textContent=`Guardando ${done} de ${total}…`; }
+  for(const m of toMerge){ const cur=S.studios.get(m.id); const next={...cur,...m.patch,updated_at:today};
+    try{ await enqueue("studios/"+m.id,()=>S.db.doc("studios/"+m.id).set(next)); S.studios.set(m.id,next); }catch(e){ fail++; } done++; prog.textContent=`Guardando ${done} de ${total}…`; }
+  IMP=null; $("#imp-file").value=""; $("#imp-out").innerHTML=`<div class="flag" style="border-color:var(--st-hot);background:color-mix(in srgb,var(--st-hot) 10%,transparent)">Listo: ${toCreate.length} estudios nuevos y ${toMerge.length} completados.${fail?` ${fail} no se pudieron guardar.`:""} La información comercial no se modificó.</div>`;
+  rerender();
+}
+const STUDIO_KEYS=["name","google_maps_name","address","neighborhood","neighborhood_confidence","city","lat","lng","phone","whatsapp","website","instagram","facebook","email","google_place_id","google_maps_url","google_category","rating","review_count","opening_hours","services","studio_type","description","source","verified_at","needs_review","review_notes","created_at","updated_at"];
+const CRM_KEYS=["status","interest","contact_name","contact_role","contact_phone","whatsapp","instagram","email","preferred","last_contact","next_contact","contact_count","rejection","notes","history","updated_at"];
+function exportIds(){ const set=$("#exp-set").value, t=todayISO(); const all=allIds();
+  if(set==="view") return filtered(); if(set==="sin") return all.filter(id=>statusOf(id)==="sin_contactar"); if(set==="int") return all.filter(id=>INTEREST.has(statusOf(id)));
+  if(set==="seg") return all.filter(id=>isPending(crmOf(id),t)); if(set==="cli") return all.filter(id=>statusOf(id)==="cliente");
+  if(set==="barrio") return all.filter(id=>S.studios.get(id).neighborhood===$("#exp-barrio").value); return all; }
+function csvCell(v){ if(v==null) return ""; if(Array.isArray(v)) v=v.map(x=>typeof x==="object"?`${x.date} ${x.channel}: ${x.result}${x.note?" ("+x.note+")":""}`:x).join(" | "); v=String(v); return /[",\n;]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v; }
+function buildExport(){ const ids=sortIds(exportIds(),"name"), what=$("#exp-what").value, fmt=$("#exp-fmt").value;
+  if(fmt==="json"){ const arr=ids.map(id=>{ const s=S.studios.get(id); const st=Object.fromEntries(STUDIO_KEYS.map(k=>[k,s[k]??null])); return what==="both"?{id,studio:st,crm:Object.fromEntries(CRM_KEYS.map(k=>[k,crmOf(id)[k]??(k==="status"?"sin_contactar":null)]))}:{id,...st}; });
+    return {text:JSON.stringify(arr,null,2),n:ids.length,ext:"json"}; }
+  const head=["id",...STUDIO_KEYS,...(what==="both"?CRM_KEYS.map(k=>"crm_"+k):[])];
+  const lines=[head.join(",")]; for(const id of ids){ const s=S.studios.get(id), c=crmOf(id); lines.push([id,...STUDIO_KEYS.map(k=>s[k]),...(what==="both"?CRM_KEYS.map(k=>k==="status"?(c.status||"sin_contactar"):c[k]):[])].map(csvCell).join(",")); }
+  return {text:"﻿"+lines.join("\n"),n:ids.length,ext:"csv"}; }
+function renderData(){
+  const barrios=uniq([...S.studios.values()].map(s=>s.neighborhood)); const sel=$("#exp-barrio"); const cur=sel.value;
+  sel.innerHTML=barrios.map(b=>`<option ${b===cur?"selected":""}>${h(b)}</option>`).join("");
+  $("#exp-barrio-f").hidden=$("#exp-set").value!=="barrio"; $("#exp-n").textContent=S.ready.studios?`(${exportIds().length})`:"";
+}
+async function doExport(){ const {text,n,ext}=buildExport(); if(!n){ toast("No hay estudios en esa selección"); return; }
+  const setName={all:"todos",view:"vista",sin:"sin-contactar",int:"interesados",seg:"seguimientos",cli:"clientes",barrio:norm($("#exp-barrio").value).replace(/ /g,"-")}[$("#exp-set").value];
+  const filename=`estudios-caba-${setName}-${todayISO()}.${ext}`; const out=$("#exp-out");
+  const dl = await claude.use("downloads").catch(()=>null);
+  if(dl){ try{ const r=await dl.save({filename,data:text}); out.innerHTML=r&&r.status==="saved"?`<div class="faint">Archivo entregado: ${h(filename)}</div>`:""; return; }
+    catch(e){ if(e&&e.code==="cancelled"){ return; } } }
+  out.innerHTML=`<p>No se pudo descargar desde esta vista. Copiá el contenido y pegalo en un archivo <span class="mono">.${ext}</span>:</p><div class="actions"><button class="btn sm" id="exp-copy">Copiar ${n} estudios</button></div><pre class="out" id="exp-pre"></pre>`;
+  $("#exp-pre").textContent=text.slice(0,20000)+(text.length>20000?"\n…":""); $("#exp-copy").onclick=()=>copyText(text); }
+
+/* ============ arranque ============ */
+function wire(){
+  document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+  let qt; $("#q").oninput=e=>{ clearTimeout(qt); qt=setTimeout(()=>{ S.q=e.target.value; S.shown=PAGE; if(S.tab==="mapa") renderMap(); else renderList(); },120); };
+  $("#q").onkeydown=e=>{ if(e.key==="Escape"){ e.target.value=""; S.q=""; renderList(); } };
+  $("#btn-filters").onclick=()=>{ const f=$("#filters"); f.hidden=!f.hidden; $("#btn-filters").setAttribute("aria-expanded",String(!f.hidden)); if(!f.hidden) renderFilters(); };
+  $("#sort").onchange=e=>{ S.sort=e.target.value; renderList(); };
+  $("#imp-file").onchange=e=>{ const f=e.target.files[0]; if(f) onImportFile(f); };
+  ["exp-set","exp-barrio","exp-what","exp-fmt"].forEach(i=>$("#"+i).onchange=renderData);
+  $("#exp-go").onclick=doExport;
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape" && S.sel && !e.target.matches("input,textarea,select")) closeDetail(); if(e.key==="/" && !e.target.matches("input,textarea,select")){ e.preventDefault(); if(S.tab!=="lista") setTab("lista"); $("#q").focus(); } });
+  initMap();
+}
+async function start(){
+  wire();
+  let t="panel"; try{ t=localStorage.getItem("ec.tab")||"panel"; }catch(e){}
+  const hash=(location.hash||"").slice(1); if(/^caba-\d+$/.test(hash)){ S.sel=hash; t="lista"; }
+  setTab(t);
+  const [db,user]=await Promise.all([claude.use("db"),claude.use("user")]).catch(()=>[null,null]);
+  if(!db){ banner("No se pudo abrir la base de estudios. Abrí esta página desde claude.ai con tu cuenta."); S.ready.studios=true; renderAll(); return; }
+  S.db=db;
+  if(user){ try{ const ce=await user.canEdit(); S.canCrm = ce===false ? false : (ce?true:null); S.canStudio=S.canCrm; }catch(e){} }
+  if(S.canCrm===false) banner("Estás viendo esta página sin permiso de edición: la relación comercial (estados, notas, historial) no se muestra.");
+  db.collection("studios").onSnapshot(snap=>{ const m=new Map(); snap.docs.forEach(d=>m.set(d.id,d.data())); S.studios=m; S.ready.studios=true;
+    if(S.sel && !m.has(S.sel)) S.sel=null; rerender(); },
+    e=>{ S.ready.studios=true; banner("Se perdió la conexión con la base de estudios. Recargá la página."); rerender(); });
+  db.collection("crm").onSnapshot(snap=>{ const m=new Map(); snap.docs.forEach(d=>m.set(d.id,d.data())); S.crm=m; S.ready.crm=true; rerender(); },
+    e=>{ S.ready.crm=true; rerender(); });
+}
+window.addEventListener("resize",()=>{ if(window.innerWidth>=1080) document.body.style.overflow=""; });
+start();
+})();
+</script>

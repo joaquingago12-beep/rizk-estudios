@@ -1,0 +1,1224 @@
+{
+  "discarded": [
+    {
+      "google_place_id": "ChIJxQAdaHLLvJUR2qaT0h5qVtc",
+      "name": "LcnPro",
+      "address": "Maza 449, C1206 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Estudio de filmación/fotografía (ciclorama), no de audio",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJo82DcpvHvJURJCsEXmTJPVA",
+      "name": "Onix Mastering Studio",
+      "address": "Gdor. Emilio Castro 510, B1706 Haedo, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (Haedo, Provincia de Buenos Aires)",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJHWAURg22vJURYQcz3tTta-s",
+      "name": "D7tv - Estudio 1",
+      "address": "Torrent 1141, C1427 CABA",
+      "reason": "Estudio de televisión y video, no de música",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJzbbr5z-2vJUR7fqjmwKcmEI",
+      "name": "Rohina Producciones",
+      "address": "Navarro 2155, C1419HSA CABA",
+      "reason": "Estudio de filmación, no de audio",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJpwS8Jrk0o5URWh5wOhUGHL0",
+      "name": "Arenas Studios",
+      "address": "Av. Don Pedro de Mendoza 965, C1156ACJ CABA",
+      "reason": "Salón de eventos y estudios de TV, no estudio musical",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJaWeYNAA1o5URkqcCF2fqlPI",
+      "name": "Estudios AZZ",
+      "address": "Av. Paseo Colón 221 Piso 1, C1063ACC CABA",
+      "reason": "Estudio de TV, no musical",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJC-f-VVY1o5UR8gFciSBVix0",
+      "name": "Casa LeFunk TinyStudio Apartment",
+      "address": "Gral. Daniel Cerri 1363, C1291 CABA",
+      "reason": "Parece un alquiler de departamento; sin evidencia de estudio",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJ9XaqoNDKvJURYuuMbIS7W4s",
+      "name": "Estudio De Grabacion",
+      "address": "Moreno 1195, C1091AAW CABA",
+      "reason": "Ficha genérica sin nombre comercial ni datos verificables",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJD6cLr0fIvJUR-CTsHulIuus",
+      "name": "Showroom Liniers",
+      "address": "Timoteo Gordillo 65, C1408 CABA",
+      "reason": "Tienda de instrumentos, no estudio",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJGdMPQCfJvJUR4jbdr7XiBiQ",
+      "name": "El Cuzco Estudio de Grabación/Salas de Ensayo",
+      "address": "Cuzco 1610, B1768 Villa Madero, Provincia de Buenos Aires",
+      "reason": "Fuera de CABA (Villa Madero, Provincia de Buenos Aires)",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJh0KyQoPJvJURniFzjlg2BEY",
+      "name": "Estudio Pantano",
+      "address": "25 de Mayo 807, B1702 Ciudadela, Provincia de Buenos Aires",
+      "reason": "Fuera de CABA (Ciudadela, Provincia de Buenos Aires)",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJ1dp-eyvJvJURNHgIj708ceY",
+      "name": "Estudio de grabacion El Duky",
+      "address": "Culpina 1020, B1768AQB Villa Madero, Provincia de Buenos Aires",
+      "reason": "Fuera de CABA (Villa Madero, Provincia de Buenos Aires)",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJafpvLjTLvJURTDUQ8MipFrA",
+      "name": "AGM STUDIOS",
+      "address": "34.666095, -58 446110, C1437 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Ficha sin reseñas ni datos verificables (la dirección son coordenadas)",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJsZeoEADJvJUROOIwyOdsN1M",
+      "name": "Make Pure Vibes",
+      "address": "Teniente General, Au Luis Dellepiane 5396, C1439 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "No queda claro que sea un estudio musical",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJ0fIvEzLNvJURvfXyJxkRzl8",
+      "name": "Estudio Los arboles",
+      "address": "Reaño 1747, B1821 Ingeniero Budge, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (Ingeniero Budge, Provincia de Buenos Aires)",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJWbysrpjNvJURB0yUBtbxE8E",
+      "name": "Suburbio estudio",
+      "address": "Baradero 1063, B1832 Lomas de Zamora, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (Lomas de Zamora, Provincia de Buenos Aires)",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJ7WD3OQC3vJURk9LsGlXauVM",
+      "name": "Studio Belgrano",
+      "address": "Av. Cabildo 3245, C1429AAD C1429AAF, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Boliche / bowling, no estudio",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJl8531dHLvJURXS9zUuUTd9o",
+      "name": "Clases producción musical y beatmaking. Música y composición",
+      "address": "Estado de Palestina 742 Piso 6 departamento 14, C1182 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Solo clases, sin reseñas ni evidencia de estudio",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJL9k0HAC3vJURHRLyKRBSPPM",
+      "name": "Estudio HB - Sucursal Villa Urquiza",
+      "address": "Díaz Colodrero 2360, C1431 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Centro de estética",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJX45bIC61vJUR6KezSK0GzdY",
+      "name": "Mond Studio",
+      "address": "Av. Olazábal 4150, C1430BQU Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Estudio de diseño",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJgQBqXGK3vJURfxFccJC70lw",
+      "name": "Contacto Espacio Estudio de Maquillaje Peinado y Tratamientos faciales",
+      "address": "Valdenegro 2532, C1431 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Centro de estética",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJj6vhPUa3vJURFnU58d7Vg20",
+      "name": "Studio 11",
+      "address": "Ceretti 2131, C1431 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Peluquería",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJsxYAxxTLvJURIJWutXAZpuw",
+      "name": "El Camino Casa de Música",
+      "address": "Rincón 594, C1227 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Café / casa de música, no estudio",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJzbpU2sPKvJURZUic8Ftul6U",
+      "name": "Oddity Music",
+      "address": "Sarmiento 1711, C1042 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Tienda de instrumentos",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJVYXsP8TKvJURYM4sXeGHrvU",
+      "name": "Casa de Música Vendoma",
+      "address": "Sarmiento 1459, C1042 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Tienda de instrumentos",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJ9cS6jwFwOI4RILf31faGzdA",
+      "name": "Home Studio Cartago",
+      "address": "Cra. 6 #3-50, Cartago, Valle del Cauca, Colombia",
+      "reason": "Fuera de Argentina (Colombia)",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJEYLi4dL9cg0RzLVw-ec1UfQ",
+      "name": "Home Gold Studio - Estudio de grabación",
+      "address": "C. Madre Teresa de Calcuta, 12, 29620 Torremolinos, Málaga, Spain",
+      "reason": "Fuera de Argentina (España)",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJVa845vG1vJURJtFtuhcL8oU",
+      "name": "More Television S.A.",
+      "address": "Fraga 167, C1427 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Productora de TV",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJd7dR1OLLvJURMPeVsp4jVDg",
+      "name": "Resto del Mundo",
+      "address": "AAZ, Av. Pavón 4184, C1253 C1253AAZ, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Bar / espacio cultural, no estudio",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJi_-gfLO3vJURuGDNvQm4gPc",
+      "name": "Definitivo Estudio",
+      "address": "Honorio pueyrredon 896 Ohhigins 4475, Machaín 3419, 1427 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Dirección incoherente y sin reseñas",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJe1KwQQC3vJURd0Px-mbfOZk",
+      "name": "Home Studio",
+      "address": "Marcos Sastre 2925, C1417XXX Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: beauty_salon",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJCfsxOgDLvJURvKOowW5fiDw",
+      "name": "Uñas|caballito home studio",
+      "address": "Av. Ángel Gallardo 730, C1405DJU C1405DJU, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: beauty_salon,nail_salon",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ5eTMhW7LvJUR6CLxuPSxeF4",
+      "name": "Home Studio Gla",
+      "address": "Sánchez de Loria 1300, C1241ACA Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: beauty_salon,nail_salon",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJt6_CJirLvJURZNOuQyXxdYg",
+      "name": "Clases de Producción Musical y Composición",
+      "address": "Av. Asamblea 1000, C6740 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Solo clases de producción; no ofrece estudio",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJX7UpacK5vJUROvi47ZN_p3A",
+      "name": "Altisho Estudio de Grabación, Reamp, Producción, Mezcla y Mastering",
+      "address": "Emilio Frugone 4162, B1678GTB Caseros, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (2987 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJecALOfvNvJUR8tUNe3s57Qc",
+      "name": "Monkey Estudio",
+      "address": "Guadalupe 1976, B1824 Lanús, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (2746 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJG8tUejHNvJURsrYRgaNqayI",
+      "name": "Metalkon studio",
+      "address": "Gobernador Felipe Llavallol 980, B1824 Lanús, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (4040 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJt8TMokUzo5URgM7oXcN8CtE",
+      "name": "La Taberna Sala de ensayo / Estudio de Grabación",
+      "address": "Lamadrid 171, Avellaneda, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (1516 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJhZGJLwDFvJURIPFy0Kiw3bI",
+      "name": "Home studio glow byshey 💜",
+      "address": "Cnel. Garmendia 5695, B1758CMF González Catán, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (14053 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJQawifwDTvJURmxQHbSZvsMY",
+      "name": "Magnolia home studio",
+      "address": "Loria 695, B1832 Lomas de Zamora, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (8044 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ5ZfN917NvJURdypGxl7bGy4",
+      "name": "Estudio Villa Urbana",
+      "address": "Fallieres 2277, B1832 Villa Fiorito, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (1204 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJE9ZbUnbJvJURu_TcDLqK0Gs",
+      "name": "Estudio de Produccion Musical “ALFLOW”",
+      "address": "Av. Brig. Gral. Juan Manuel de Rosas 950, B1752 Lomas del Mirador, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (1164 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJo72Gpp0zo5UR-guLW0EvT3c",
+      "name": "Furor Music",
+      "address": "25 de Mayo 670, B1871 Avellaneda, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (1064 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJv160IFrJvJURKW4hIn-uZ0U",
+      "name": "Las Puertas Sala de Ensayo",
+      "address": "Panamá 4745, B1751BEQ La Tablada, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (572 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJtYSuhZPJvJURfv0IOxWZ2ls",
+      "name": "HHomeSTUDIO",
+      "address": "Vito D. Sabia 3292, B1752 Lomas del Mirador, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (87 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJxYntoYvPvJURSY5sRSap2t0",
+      "name": "Aldo Bonzi Estudio Récords",
+      "address": "Cucha Cucha 1758, B1785BKP Aldo Bonzi, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (3776 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJJYA2WozKvJURtHO3XGsgAnA",
+      "name": "Arc Abasto Studios",
+      "address": "Lavalle 3086, C1190 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJIXJ3S5vPvJUREC3lHOzy6fk",
+      "name": "Armando Studio Digital (Armando Alvarado -LOS JATUN)",
+      "address": "Barros Pazos 2064, B1772 Villa Celina, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (29 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJdxkXhFMzo5URSdfuHpwdxoc",
+      "name": "Salas DreamZeppelin",
+      "address": "Gral. Levalle 385, B1870 Avellaneda, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (552 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJffG9VZ3LvJURtsQ819IoSMI",
+      "name": "TAMABA",
+      "address": "Adolfo Alsina 1994, C1090 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Escuela/universidad de música, no estudio",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJK-GTIszMvJURC8oIK8co6JM",
+      "name": "SAC Studios",
+      "address": "B1869CMN, Vélez Sársfield 1617, B1869CMN Gerli, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (2621 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ2zmuZcC1vJURBL_TwbGdNhQ",
+      "name": "BT Homes - Studio Moderno en Palermo Pool & Gym",
+      "address": "C1426 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJK-Fgu8y1vJURz-Wj__dnM8Y",
+      "name": "BB.estudio- Colegiales",
+      "address": "Av. Álvarez Thomas 1121, C1427 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: health",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJgzA1XgC1vJUR-g52xon9X_k",
+      "name": "HOME PILATES by Samantha Aranda",
+      "address": "Av. Gral. Indalecio Chenaut 1940, C1426 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: health",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJfXCMAYW1vJURAZmm-px0o4E",
+      "name": "Dark Home Tattoo Studio",
+      "address": "Teodoro García 1860, C1430 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Estudio de tatuajes",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJKac4FN3LvJURqXvBpzfmM64",
+      "name": "Clases de Canto, Ableton Live, Musica y Ronroco - Produce tus canciones!",
+      "address": "Zabala 3428, C1426 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Cursos/clases de producción, no estudio",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJwSrmYlbLvJURsIB2duXpXrI",
+      "name": "RINGO ESCUELA",
+      "address": "Calle Jorge Newbery 2909, C1426 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Escuela de música, no estudio",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJq9C7fNC1vJURyu_bB3iwHj0",
+      "name": "Estudio Liberarte (Estudio de música)",
+      "address": "Amenábar 1424, C1426 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Escuela de canto, no estudio",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJaTX_GwC1vJURgUYudGx525E",
+      "name": "Lucía Belén Home Studio",
+      "address": "Av. Corrientes 6365, C1427 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: beauty_salon",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJWWOXkSm1vJUR_tO3DzbfK5I",
+      "name": "Suave conejito",
+      "address": "Santos Dumont 3526, C1426 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Taller de cerámica",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJzUYmk7m1vJURIdmAoskhxcE",
+      "name": "Hikari Studio",
+      "address": "El Salvador 5856, C1414 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: home_improvement_store",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJK0rQKmW2vJURW50lULy9Vhk",
+      "name": "Espacio H",
+      "address": "Holmberg 2139, C1430DOM Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Estudio de fotografía",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJo82rZ0a3vJURee3l5ewcbj4",
+      "name": "Parche Percusión",
+      "address": "Iberá, Av. Triunvirato y, C1431 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Taller de percusión (clases)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJtfNKufe3vJURz8ID0_wxToc",
+      "name": "Abrí tu música - Estudio de enseñanza y exploración musical",
+      "address": "Felix O. Foullier 5880, C1431 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de música para chicos",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ334hKVrHvJURIs9AmFSlEig",
+      "name": "Estudio Veintidos",
+      "address": "Le Bretón 4500, C1430BDJ Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Escuela/comunidad de música, no estudio",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ9fdM7U-2vJURrkllKbRHFXU",
+      "name": "I.m.p. Instituto Musical Pueyrredon",
+      "address": "Carlos Antonio López 2459, C1419 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Instituto de música y danza",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJndnhtlW3vJURgKPcuqTdwtQ",
+      "name": "We Are Studios",
+      "address": "Navarro 2155, C1426 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Estudio de foto y video",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJWzCghf7JvJURAfJtVXRmo5M",
+      "name": "Lucid Dreams Studios",
+      "address": "Paso, entre Posadas, Av. Eva Perón y, B1704 Ramos Mejía, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (482 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJBda3j3LIvJURVoxdFwIKzWA",
+      "name": "SALAS DE ENSAYO ACHA Ramos Mejia",
+      "address": "GNS, Gral. Acha 941, B1704 Ramos Mejía, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (1283 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ9Vyuc1LHvJURBYLaB-MqsX0",
+      "name": "Sala de Ensayo Gallo Ciego",
+      "address": "Av. Brig. Gral. Juan Manuel de Rosas 3589, B1754 San Justo, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (3902 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJOQtEn-jJvJURObzdjC70hGY",
+      "name": "Núcleo Records Argentina",
+      "address": "Cabo Alberto Hugo Vacca 644, B1704 Ramos Mejía, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (888 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJy6PH8abLvJURZ1CSK1zTV-Y",
+      "name": "Sala 16y33 ( The Salita )",
+      "address": "Azcuénaga 237, B1704 Ramos Mejía, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (2933 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJs23qRPXLvJUROtFAl0xK_1M",
+      "name": "Hottest Studio Caballito",
+      "address": "Hidalgo 881, C1405 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: health",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ3b2v7AXLvJURrNJQBRYS21g",
+      "name": "Beauty by Valen | Nails HomeStudio",
+      "address": "Cachimayo 326, C1424AQH Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: beauty_salon,nail_salon",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJPcWIlkzLvJUR4aGkzpC6jpM",
+      "name": "Clases de guitarra en Capital Federal y Online.",
+      "address": "Rojas 479, C1405 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de guitarra",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJNywDuTjKvJURQFbtaGvTlRI",
+      "name": "Primera Junta",
+      "address": "C1405 Buenos Aires, Argentina",
+      "reason": "Estación de subte",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJabdCE461vJUR2rY6MTXz4sY",
+      "name": "Digital Televisión",
+      "address": "Costa Rica 5464, C1414BTB Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Estudio de TV/video sin audio",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJp3EizXy1vJURGmOu_YM_4wI",
+      "name": "Studio-Palermo Trendy Home I -Palermo Chico balcón - One-Bedroom Apartment",
+      "address": "C1425 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJrctpLZu1vJURa7cUBTqcIX0",
+      "name": "Monoambiente en Palermo by BA Rent a Home - Studio With Balcony",
+      "address": "C1425 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ70nHwJG1vJUROR9l85rzLC4",
+      "name": "Boho Studio in the Heart of Palermo by BT Homes - Apartment, 1 Bedroom, Balcony, City View",
+      "address": "C1414 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJuyhqLZu1vJUR0WBvbiDpTJ8",
+      "name": "Monoambiente en Palermo by BA Rent a Home - Studio with Balcony",
+      "address": "C1425 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJheFYZGy1vJUREBD58NPuNbs",
+      "name": "STUDIO MÁS academia de canto y productora audiovisual",
+      "address": "Thames, C1900BVD Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Academia de canto y productora audiovisual",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJOUwl_Oy1vJURskkT802sSFU",
+      "name": "Sony Music Entertainment Argentina S.A.",
+      "address": "José A. Cabrera 6027, C1414BHM Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Oficina de discográfica",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJPV9LnvW1vJUR2m2xtJa445M",
+      "name": "Hermoso Studio, Villa Crespo. Juan B Justo y Av Corrientes. - One-Bedroom Apartment",
+      "address": "C1414 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ1-7x0QnKvJURY0T9DUU2SHs",
+      "name": "Modern Studio in Villa Crespo - One-Bedroom Apartment",
+      "address": "C1414 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJUwsM1ve1vJURq6cniScEoDI",
+      "name": "Estudio Villa Crespo - One-Bedroom Apartment",
+      "address": "C1414 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJRc6EJgbLvJURsVOJho-6D8w",
+      "name": "Splausky Musica",
+      "address": "Av. Raúl Scalabrini Ortiz 600, C1414 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Profesora de canto",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJAyzD4szLvJURK8cD4ZeSTkc",
+      "name": "Clases de Canto y Guitarra Villa Crespo",
+      "address": "Vera 141, C1414 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de canto y guitarra",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJzWddiXXLvJURnambtJIYHl8",
+      "name": "Clases de música, producción musical, mezcla, composición y arreglo",
+      "address": "Online, C1414 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de música",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJQ_TIaz3LvJUR7GFIbYfy8iM",
+      "name": "Taller de Canto Grupal - La Cuerda",
+      "address": "Av. Raúl Scalabrini Ortiz 257, C1414 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Taller de canto",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ3fhZNADLvJURSTIQes36slA",
+      "name": "Almagro BA Studio",
+      "address": "Guardia Vieja 3749, C1192AAI Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJo2qg3onKvJURTZm3e4XIQ4c",
+      "name": "Almagro BA Studio. - One-Bedroom Apartment",
+      "address": "C1175 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ-eiLc4rKvJURpKPAM5Gpx1c",
+      "name": "Large studio + pool + BBQ - Almagro - Studio Apartment",
+      "address": "C1191 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJDzd3oTbLvJUR4M51x73hiHw",
+      "name": "Estudio Forma",
+      "address": "Billinghurst 228, C1174ABD Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Taller de productos de cuero",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJGW00wXTLvJURe4x6iN0Vmyo",
+      "name": "Clases de Bajo Almagro Leandro T",
+      "address": "Sánchez de Bustamante 213, C1173 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de bajo",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ-SjgpiPLvJURo9PcSLVLQas",
+      "name": "Clases de bajo en Almagro ,Palermo ,once ,Abasto",
+      "address": "Av. Corrientes 3508, C1194AAO Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de bajo",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ8X2i91yPvJURIdwAoZs8aoo",
+      "name": "Estudio del Abasto al Pasto \"Mansión Monsterland\"",
+      "address": "Ruta 5 ex 7) km 56,200, B1748 Gral. Rodríguez, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (42324 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJB5Ziuo7KvJURC1AA3VR7QVw",
+      "name": "Sala de ensayo Aguero y Cordoba",
+      "address": "Agüero 842, C1171 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Sala de danza (espejo y barra)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJya5_oPLKvJURh9N18qQwIKo",
+      "name": "TAIYO Electrónica",
+      "address": "Valentín Gómez 2816, C1032 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Tienda de electrónica",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJmzsuZJvKvJURKFiPi2VnFMU",
+      "name": "Estudio Deco Home - Studio Apartment",
+      "address": "C1425 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJw4RQeoXKvJURaVzLnV0ah9M",
+      "name": "Monoambiente en Recoleta by BA Rent a Home - Studio",
+      "address": "C1425 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ3xAkM8W1vJURe09zfZfsjKk",
+      "name": "Cozy Studio in Belgrano - One-Bedroom Apartment",
+      "address": "C1426 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ3xAkM8W1vJURSbGdU3kKP2I",
+      "name": "Cozy Studio in Belgrano - One-Bedroom Apartment",
+      "address": "C1426 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJxwE6qIC2vJURSLz0oT1E5T4",
+      "name": "Cozy Studio Super Equipped! Great for Remote Workers /couples. In the Heart of BA",
+      "address": "C1428 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJKbswqIC2vJURZH0bTr9FnLo",
+      "name": "Cozy Studio Super Equipped! Great for Remote Workers/couples. In the Heart of BA",
+      "address": "C1428 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJSYmko8y1vJURlmBifaDdqQ0",
+      "name": "TheGuitarTeacher - Guitarra y Producción Musical",
+      "address": "Echeverría 1437, C1428 DQQ, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de guitarra",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJb-3aySm0vJURSnhOOxiJ9A0",
+      "name": "Ara Homes Nuñez - Studio Apartment",
+      "address": "C1429 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJrTlT15u2vJUREq2XEI3YGQ4",
+      "name": "Hermoso Homestudio en Nuñez con Amplio balcon luminoso - One-Bedroom Apartment",
+      "address": "C1429 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJgQp4sFi3vJUR7lCKcUwskdE",
+      "name": "Estudio nuñez",
+      "address": "Av. Cabildo 3073 9B, C1429 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: hair_salon",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJEwr6lA63vJURTwSLc2leJkg",
+      "name": "Cesca Studio",
+      "address": "Cdad. de la Paz 3325, C1429 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Tienda de muebles",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJDV71n0W3vJUROd5ccZyL_o4",
+      "name": "Estudio Kohon - Desarrolladora Inmobiliaria",
+      "address": "Quesada 2746, C1429 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Desarrolladora inmobiliaria",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ1YwGWDK1vJUR6av3kkutevE",
+      "name": "Zujaira Espacio de Artes",
+      "address": "Blanco Encalada 2256, C1428 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: gym,health",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJFfuETADLvJURYpm4q_H4QOY",
+      "name": "Recoleta Studio",
+      "address": "Rodríguez Peña 1574, C1024 Comuna 2, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJB8xqZJvKvJURHQpZ1bdoKI8",
+      "name": "Modern Studio in heart of Recoleta with pool, grill and laundry - Studio Apartment",
+      "address": "C1425 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJNX-NMgDLvJUR3E9IYYQwn3Y",
+      "name": "RECOLETA STUDIO",
+      "address": "Vicente López 2240, C1128 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJcbyNjnLLvJURTwJTOCLr700",
+      "name": "Geminis Audio Solutions",
+      "address": "Sánchez de Bustamante 2156, C1425 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Venta de equipos de audio",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJX1haL4zLvJURqaI2IUItxqc",
+      "name": "Estudio CAT (Centro Cultural Independiente de Ciencia, Arte y Tecnología)",
+      "address": "Chacabuco 974, C1069AAS Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Centro cultural para eventos",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJKZshVwDLvJURElGtdHLpV7E",
+      "name": "SALA41",
+      "address": "Bolívar 674, C1066AAN C1066AAN, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Bar con música en vivo",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJwcmZZNHKvJURuq2CZ8mrKX0",
+      "name": "SinFin Studies / Study & Equipment Rental",
+      "address": "Piedras 113, C1070AAC Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: real_estate_agency",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ7W3BByvLvJURjY1A5elPFY8",
+      "name": "Studio en San Telmo - One-Bedroom Apartment",
+      "address": "C1068 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJzeVRRNbKvJUR6DlsQlomUxo",
+      "name": "Estudio San Telmo - One-Bedroom Apartment",
+      "address": "C1071 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJQc7G4yvLvJUREp2bTq7C0wg",
+      "name": "Estudio en San Telmo - One-Bedroom Apartment",
+      "address": "C1102 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJESuoNnbLvJURVqQjoMUTo3I",
+      "name": "EPIPLA Studio muebles",
+      "address": "Brasil 532 C1154AAH, C1154 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: furniture_store,home_improvement_store",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ8yRZ59Q0o5URNQB-t2_5H8E",
+      "name": "San Telmo Studio Buenos Aires - One-Bedroom Apartment",
+      "address": "C1063 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJHbilYx_LvJUR92j1nIrkmf8",
+      "name": "Espacio Rincón",
+      "address": "Rincón 1330, C1853 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Centro cultural / bar con shows",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJcwu9SwDLvJURZc1-KYJiOA8",
+      "name": "Home Studio Damaris",
+      "address": "Gaspar, C. Gaspar M. de Jovellanos 590, C1268ADL Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: beauty_salon,nail_salon",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJhwj0euvKvJUREqnzc5r589U",
+      "name": "Núcleo-Música",
+      "address": "Estados Unidos 1858, CP 1277 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Escuela de música",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ5ygqv-DLvJURq3AGeoQmYj0",
+      "name": "Clases de música - Piano - Guitarra - La Puerta del Sótano - Estudio",
+      "address": "Tte. Manuel Silvestre Prudan 1200, C1233 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de música",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJnR9dh2m3vJURaenlTv3BB6A",
+      "name": "ROCK SCHOOL URQUIZA",
+      "address": "Av. Triunvirato 4612 Primer piso ( A, C1431FBW Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Escuela de música",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJl1Qsy1m2vJURnujRn93Fa-4",
+      "name": "NUEVO ESTUDIO DE CANTO de la Lic. Yanina Mancilla",
+      "address": "Av. Congreso 5628, C1431 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Estudio de canto (clases)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJH7mSUT-3vJUR3VBSL3r4Gdo",
+      "name": "Espacio Musical Saavedra",
+      "address": "Vidal 3890, C1429 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Escuela de música",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJoXbLlua3vJURFySi9NuIfYo",
+      "name": "Clases de Guitarra, Bajo y Producción Musical | CABA y Online",
+      "address": "Miller 3535, C1671 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de música",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJz8z-1ei2vJURQnxyXzUsY84",
+      "name": "Hermoso estudio en Saavedra - One-Bedroom Apartment",
+      "address": "C1430 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJnZq1HgC3vJURYMXWrPEGwH8",
+      "name": "Honō Studio",
+      "address": "Av. San Isidro Labrador 3970, C1429 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: health",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJraCnvTO3vJURjIzO8FoqLj0",
+      "name": "TANNAT DECO STUDIO",
+      "address": "José León Cabezón 2498, C1419 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Tienda de decoración",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ_ywPecfKvJURaA5AsvssAGI",
+      "name": "Warner Music Argentina",
+      "address": "El Salvador 5671, C1414BQE, C1414 BQE, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Oficina de discográfica",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ3z0-5Im1vJURE8LJKEfM0QA",
+      "name": "Hermoso studio en Palermo Soho - One-Bedroom Apartment",
+      "address": "C1414 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJlTFov2S1vJURd5w897kTjkQ",
+      "name": "Home es casa • experience buenos aires",
+      "address": "Ángel Justiniano Carranza 2234, C1425 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Casa cultural/turismo",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJm1bp5oi1vJUR2h6FyYj1UlM",
+      "name": "Estudio en Palermo Soho - Studio",
+      "address": "C1414 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJmz_5sH_KvJUR2xSdwrTKlFM",
+      "name": "Studio Palermo Soho - One-Bedroom Apartment",
+      "address": "C1425 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJj3LKEWm1vJURAh4uM-SWAyQ",
+      "name": "estudio.te",
+      "address": "Thames 937, C1414 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: furniture_store,home_improvement_store",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJmSowM0DLvJURDRRs9TsUUPI",
+      "name": "Clases de Bajo - Palermo - Villa Crespo - Claudio Rodriguez Martin",
+      "address": "Julián Álvarez 940, C1414 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de bajo",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJEQnvX2O1vJURbNGiPX1ZR94",
+      "name": "Escuela de Música QuéMambo!",
+      "address": "Villarroel 1139, C1414 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Escuela de música infantil",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ82qtNQvKvJUREBEzaka60h0",
+      "name": "Gamber Música (Guitarra, Audioperceptiva, Bajo y Ukelele - Villa Crespo)",
+      "address": "Acevedo 421, C1414 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de música",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJr5ivmtS1vJURGqsVvBlYxCE",
+      "name": "Aural Escuela",
+      "address": "Mendoza 2446, C1428 DKP, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Escuela de producción (institución educativa)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJU_c7lZ7LvJURhhBAxF_yKvw",
+      "name": "Pilates Home",
+      "address": "Billinghurst 986, C1711 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: gym,health",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJH1kTHYDLvJURXUOtFZFL32g",
+      "name": "Powerhome Pilates",
+      "address": "Colombres 274, C1177 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: health",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ1_z0rYLLvJURNjSZjMwDibs",
+      "name": "Studio in Palermo",
+      "address": "Bulnes 1129, C1176 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ58kumyfKvJUR76FH1iErJFE",
+      "name": "House Audio - Flores",
+      "address": "Av. Rivadavia 6863, C1406GLL Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: cell_phone_store,shopping_mall",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJl1tmYs_LvJURdgmQ96XdlLs",
+      "name": "Casa Porasy",
+      "address": "Almte. F.J. Seguí 343, C1406GCI Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: health,massage,yoga_studio",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJhUaMfybKvJUR2Ufu-UlTPL8",
+      "name": "Tempo Music Store - Musical Instruments",
+      "address": "Culpina 43, C1406ENA Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Tienda de instrumentos",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJaxBaKmHKvJURX8g0IYvU_a0",
+      "name": "ENSAMBLES DE MÚSICA",
+      "address": "Culpina 840, C1406 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Ensambles (clases grupales)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ872ewEnJvJURA6IY2OW18m8",
+      "name": "Flauta traversa - Silvia Rupar",
+      "address": "Condarco, Entre, Yerbal 206, C1406 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Clases de flauta",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ7xiolHPJvJURb8MbrYC7OTM",
+      "name": "La Boheme Sala de Ensayos",
+      "address": "Colón 2126, B1752BJD Lomas del Mirador, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (800 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJxVP9z9LJvJUR7VdIPiqepK4",
+      "name": "Estudio House",
+      "address": "Homero 598, C1407 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Estudio de danza",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJm7YgLHjJvJURvlgTSdN4F3I",
+      "name": "Jaquemate Studio",
+      "address": "Av. Juan Bautista Alberdi 3956, C1407 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: furniture_store,home_improvement_store",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJL0ILFOe3vJURhBVgTjktD8U",
+      "name": "Pilates House Studio",
+      "address": "Bermúdez 3172, C1417 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: health",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJn04jsjC2vJURRj-IqDBAU_g",
+      "name": "Fk Villa Devoto - Studio Apartment with One Double Bed",
+      "address": "C1417 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJgwOgwZu3vJURAPfGoz8C8vE",
+      "name": "Sala de ensayo en San Martín",
+      "address": "Oliveira Cesar 1839, B1650 San Martín, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (922 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJNRHJZyXKvJURBTiFE36O5xo",
+      "name": "Glasstudio sale of glass tile mirrors",
+      "address": "Av. Curapaligüe 157, C1406 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: building_materials_store",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJNZ2SZYfJvJURBUPRk-TwYjo",
+      "name": "FotoGarcia - Kodak Express - Foto carnet - Fotos - Video - 15 Años- Casamientos - Regalos Empresariales",
+      "address": "Pedernera 137, C1406 EEC, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Casa de fotografía",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJU4bZdrPNvJUR0W4wDEBTCOY",
+      "name": "LB BEATS - BEATMAKER",
+      "address": "Neuquén 633, B1828 Lomas de Zamora, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (4965 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJh0GY0p_JvJURK2kCTec1LeE",
+      "name": "Nutrilite / Amway Home / Artstry Studio",
+      "address": "Balbastro 5371, C1439 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: shopping_mall",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ9RRQUS61vJURDu8cghLZEHQ",
+      "name": "Iro DecoArt",
+      "address": "Hubac 6036 1, C1439 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Decoración",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJWUuk47LOvJURcT9T9GbKLHo",
+      "name": "Artística Pinocho",
+      "address": "Av. Piedra Buena 4773, C1439 GWE, Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: furniture_store,home_improvement_store",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJIdrDwtzLvJURls823q7NIZo",
+      "name": "Vision Home Estudio",
+      "address": "Av. Gral. Hornos 1758, B1821 Buenos Aires, Provincia de Buenos Aires, Argentina",
+      "reason": "Fuera de CABA (2477 m)",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJS1HWAVrLvJURi8YyjSFSX-s",
+      "name": "Lietta Beauty Studio (Pestañas-cejas-uñas-faciales y más )",
+      "address": "Rondeau 2603, C1244 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: beauty_salon",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJr8obFwXLvJURZa2myxdHtJ4",
+      "name": "Departamento en Parque Patricios - Two-Bedroom Apartment",
+      "address": "C1244 Buenos Aires, Argentina",
+      "reason": "Rubro no musical: lodging",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJkVM7GtPLvJURc27Y1NZBn_c",
+      "name": "Malluland",
+      "address": "Esteban de Luca 2237, C1244 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: beauty_salon",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJIeiRQAC3vJURYMD0Pd9lZq0",
+      "name": "LASHES ICONIC by vir",
+      "address": "Tinogasta 3227, C1417 Cdad. Autónoma de Buenos Aires, Argentina",
+      "reason": "Rubro no musical: beauty_salon",
+      "bloque": 2
+    }
+  ],
+  "duplicates_merged": [
+    {
+      "google_place_id": "ChIJPevQ3Aa2vJURtezWz7h1r9k",
+      "name": "Salas la Mansión de Ensayo y Grabación",
+      "merged_into": "ChIJPZqxvly3vJURUN6SGJ8gZhk",
+      "reason": "Misma ubicación exacta y mismos horarios que otro registro; se consolidó",
+      "bloque": 1
+    },
+    {
+      "google_place_id": "ChIJHyDQMKW1vJURUGkICs0jix8",
+      "name": "Sala de ensayo Tony succar",
+      "merged_into": "ChIJsbGtlse1vJUR15cwnfZ8gtI",
+      "reason": "Misma dirección y mismo teléfono que otro registro; se consolidó",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ9ZWwQqm1vJURvvmMMyuJFm0",
+      "name": "Sala La Comu",
+      "merged_into": "caba-0029",
+      "reason": "Misma dirección y mismo teléfono que otro registro; se consolidó",
+      "bloque": 2
+    },
+    {
+      "google_place_id": "ChIJ8WtHEJK2vJURRkKkdjv3laU",
+      "name": "Salas Washington",
+      "merged_into": "ChIJ2zvt54W3vJURmSoCEXfS5fM",
+      "reason": "Misma dirección y mismo teléfono que otro registro; se consolidó",
+      "bloque": 2
+    }
+  ]
+}
