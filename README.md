@@ -17,3 +17,6 @@ Base de datos de estudios de grabación, salas de ensayo, productores, estudios 
 
 - Lo que se carga en la web (estados, notas, seguimientos) vive en la base de datos del artefacto, **no** en este repositorio. Para respaldarlo, exportar desde la web y subir el archivo acá.
 - Fuente de los datos de estudios: Google Maps (revisado al 29/09/2026). Repositorio privado.
+
+## Para trabajar con Claude Code
+Abrí la carpeta con Claude Code: el archivo `CLAUDE.md` le da todo el contexto del proyecto.
